@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> ARLearn - Propose a package </title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/submit.css">
+	<script src="js/submit.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="title" class="centered fg">
+			<h1> ARLearn: Propose a Package </h1>
+			<hr>
+		</div>
+		<div id="packagename" class="fg">
+			<label for="packagename" class="biglabel"> Package name: </label>
+			<br>
+			<input class="textfield" type="text" name="packagename" form="form" maxlength="255" required>
+		</div>
+		<div id="packagedesc" class="fg">
+			<label for="packagedesc" class="biglabel"> Package description (255 characters): </label>
+			<br>
+			<input class="textfield" type="text" name="packagedesc" form="form"  maxlength="255" required>
+		</div>
+		<div id="packagefiles" class="fg centered">
+			<table>
+				<thead>
+					<tr id="table-head">
+						<th> Model Name </th>
+						<th> Model Description </th>
+						<th> Image </th>
+						<th> Model </th>
+						<th> Information </th>
+					</tr>
+				</thead>
+				<tbody id="add-here">
+				</tbody>
+			</table>
+		</div>
+		<div id="submit" class="centered">
+			<form id="form" method="post" action="submit.php" enctype="multipart/form-data">
+				<input type="hidden" name="i" id="i" value="0">
+				<input type="submit" name="submit" class="button fg">
+			</form>
+		</div>
+		<div id="buttons" class="centered">
+			<button class="button changebtn fg" onclick="add()"> + </button>
+			<button class="button changebtn fg" onclick="remove()"> - </button>
+			<button class="button changebtn fg" onclick="window.location='index.html'"> Back </button>
+		</div>
+		<div id="language" class="right">
+			<hr>
+			<a href="bg/submit.html"> BG </a>
+		</div>
+	</div>
+</body>
+</html>

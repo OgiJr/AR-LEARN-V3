@@ -1,0 +1,16 @@
+/* Submit Form */
+#submitform {
+        width: 80vw;
+        max-height: 90vh;
+        overflow-y: scroll;
+}
+
+#buttons {
+	float: right;
+}
+
+.model {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 12px;
+}

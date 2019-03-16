@@ -1,0 +1,252 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2795964947268391433
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2473005750200850090, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_Name
+      value: Ostrander
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005750200850086, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005751793356130, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 33.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005751793356130, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 67.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005751793356130, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005751793356130, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 21.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473005751198122543, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.8800049
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_text
+      value: Ostrander Hall houses the administrative offices, the Dean of Students'
+        Office, the medical facilities and the school psychologist, the Business Office,
+        the Office of the College Counselors, the CAS labs, the Ambassadors Room,
+        and the Development Office. Here is the domain of the Student Computer Innovation
+        and Fabrication Institute (SCIFI) and the Audio-Video Studio. Ostrander is
+        also the location of Whitaker Auditorium. Named after Dr. Roger Whitaker,
+        the first President of the College after its reopening, Whitaker Auditorium
+        has a capacity of 380 seats. It is used for student performances (concerts,
+        drama and musical performances, shows, etc.), guest speaker presentations,
+        and regular informative student body meetings.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 731
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 10.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_fontSizeMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -28.223389
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -33.049927
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_margin.y
+      value: -6.0950623
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -7.741852
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+        type: 3}
+      propertyPath: m_textInfo.textComponent
+      value: 
+      objectReference: {fileID: 4138404660204368086}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59a805d70cd40cb43b8af7945a756168, type: 3}
+--- !u!114 &4138404660204368086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2279897090071798495, guid: 59a805d70cd40cb43b8af7945a756168,
+    type: 3}
+  m_PrefabInstance: {fileID: 2795964947268391433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,0 +1,88 @@
+/* Scalable Hero */
+
+/* Hero */
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* Logo */
+#hero > img {
+	width: 192px;
+	height: 192px;
+	border: 2px solid var(--orange);
+	border-radius: 192px;
+}
+
+/* Button */
+#hero > h1 {
+	color: #fff;
+}
+
+#hero > button {
+	background-color: var(--orange);
+	border: 1px solid var(--orange);
+	border-radius: 0;
+	font-size: 22px;
+}
+
+/* Icon Row */
+#icon-row {
+	padding: 60px 0;
+}
+
+/* Pics */
+#pics > #books, #design {
+	display: inline-block;
+	float: left;
+	width: 50%;
+	color: white;
+}
+
+#pics > #books {
+	background-image: url("../images/books.jpg");
+	background-size: cover;
+	background-position: center bottom;
+	height: 450px;
+}
+
+#pics > #design {
+	background-image: url("../images/design.jpg");
+	background-size: cover;
+	background-position: center bottom;
+	height: 450px;
+}
+
+#pics .overlay {
+	background: rgba(0, 0, 0, 0.5);
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.text {
+	padding: 10px;
+	font-size: 16px;
+}
+
+/* Media Queries */
+@media(max-width: 767px) {
+	.sm-dev-padding {
+		padding-top: 60px;
+	}
+
+	#pics > #books, #design {
+	display: block;
+	width: 100%;
+	}
+
+	#hero > h1 {
+		font-size: 22px;
+	}
+}

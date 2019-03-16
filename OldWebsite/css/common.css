@@ -1,0 +1,37 @@
+/* Color Scheme */
+:root {
+	--fire-brick: #c03a1f;
+	--tan: #cb9481;
+	--light-gray-slate: #8b9aa0;
+	--slate-gray: #557886;
+	--sienna: #89583a;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Global Style */
+html {
+	background-image: linear-gradient(to top, var(--light-gray-slate) 1%, white);
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	height: 100%;
+  	margin: 0;
+    padding: 0;
+}
+
+/* Specific Style */
+.centered {
+	place-self: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.fg {
+	color: black;
+}
+
+.biglabel {
+	font-size: 1.5em;
+}
