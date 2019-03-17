@@ -213,7 +213,9 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 
             newImageTarget.transform.name = selectedObject.name + " Position";
 
-            selectedObject.AddComponent<AdjustControls>();
+            selectedObject.AddComponent<Lean.Touch.LeanTranslate>();
+            selectedObject.AddComponent<Lean.Touch.LeanRotate>();
+            selectedObject.AddComponent<Lean.Touch.LeanScale>();
 
             #region Singleton
             if (selectedObject.GetComponent<AnimatorManager>() == null)
