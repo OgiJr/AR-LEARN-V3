@@ -36,10 +36,8 @@ public class AnimatorManager : MonoBehaviour
 
         swipeControls.SwipeDetect();
 
-<<<<<<< HEAD
-=======
         #region HaltAnimations
-        if (Input.touchCount > 0 || Input.GetKey(KeyCode.A))
+        if (Input.touchCount > 0)
         {
             animator.enabled = false;
         }
@@ -50,7 +48,6 @@ public class AnimatorManager : MonoBehaviour
         }
         #endregion
 
->>>>>>> f658a2ea6b44743dbdcb32d1334c0903b6b8351f
         if (animationLength > .1f)
         {
             AnimationChange();

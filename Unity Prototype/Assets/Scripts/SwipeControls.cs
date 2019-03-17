@@ -9,14 +9,10 @@ public class SwipeControls : MonoBehaviour
     private bool swiping = false;
 
     int TapCount;
-    float MaxDubbleTapTime = 1f;
+    float MaxDubbleTapTime = .5f;
     float NewTime;
 
-<<<<<<< HEAD
     public bool changeAnimationMode = false;
-=======
-    public bool changeAnimationMode = true;
->>>>>>> f658a2ea6b44743dbdcb32d1334c0903b6b8351f
     private GameObject objectHandler;
 
     private void Update()
