@@ -12,6 +12,9 @@
 	iconv_set_encoding("internal_encoding", "UTF-8");
 	iconv_set_encoding("output_encoding", "UTF-8");
 
+	// Set file size limit to 100MB
+	ini_set("upload_max_filesize", "200M");
+
 	// called on all sql statements. errors if bad
 	function checkstmt($stmt) {
 		if(!$stmt)
@@ -40,15 +43,12 @@
 		return base64_encode($return);
 	}
 
-	// Set file size limit to 100MB
-	ini_set("upload_max_filesize", "200M");
-
 	// Check to see if request is valid
 	if(!isset($_POST["packagename"])) die("<h3> Въведете име на пакета </h3>");
 	if(!isset($_POST["packagedesc"])) die("<h3> Въведете описание на пакета </h3>");
 	if(!isset($_POST["i"])) die("<h3> Имаше проблем. Моля опитайте отново по-късно. </h3>");
-	if(mb_strlen($_POST["packagename"] > 64) die("<h3> Името на пакета не трябва да е по дълго от 64 знака. </h3>");
-	if(mb_strlen($_POST["packagedesc"] > 64) die("<h3> Описанието на пакета не трябва да е по дълго от 256 знака. </h3>");
+	if(mb_strlen($_POST["packagename"]) > 64) die("<h3> Името на пакета не трябва да е по дълго от 64 знака. </h3>");
+	if(mb_strlen($_POST["packagedesc"]) > 64) die("<h3> Описанието на пакета не трябва да е по дълго от 256 знака. </h3>");
 
 	for($i = 0; $i < intval($_POST["i"]); $i++) {
 		if(!isset($_POST["m_name${i}"])) die("<h3> Пропуснали сте името на модел " . ($i + 1) . "</h3>");
