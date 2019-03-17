@@ -20,11 +20,13 @@ function add() {
                 </small>
 			</div>
 			<div class="col">
-				<label for="m_desc${i}"> Описание на модела </label>
-				<textarea class="form-control" type="text" name="m_desc${i}" rows="1" maxlength="256" aria-describedby="m_desc${i}help" required>Моделът показва ...</textarea>
-				<small id="m_desc${i}help" class="form-text text-muted">
-                	Максимум 256 знака.
-                </small>
+				<div class="form-group">
+					<label for="m_desc${i}"> Описание на модела </label>
+					<textarea class="form-control" type="text" name="m_desc${i}" rows="1" maxlength="256" aria-describedby="m_desc${i}help" required>Моделът показва ...</textarea>
+					<small id="m_desc${i}help" class="form-text text-muted">
+	                	Максимум 256 знака.
+	                </small>
+				</div>
 			</div>
 			<div class="col">
 				<div class="form-group">
