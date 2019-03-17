@@ -15,6 +15,13 @@ public class SwipeControls : MonoBehaviour
     public bool changeAnimationMode = false;
     private GameObject objectHandler;
 
+    Vector3 OGSize;
+
+    private void Start()
+    {
+        OGSize = transform.localScale;
+    }
+
     private void Update()
     {
         SwipeDetect();
@@ -50,6 +57,13 @@ public class SwipeControls : MonoBehaviour
 
     internal void SwipeDetect()
     {
+        Vector3 velocity = Vector3.zero;
+
+        if(Input.touchCount == 0 && !Input.GetMouseButton(0))
+        {
+            transform.localScale = Vector3.SmoothDamp(transform.localScale, OGSize, ref velocity, 0.1f);
+        }
+
         if (Input.touchCount == 1 || Input.GetMouseButton(0))
         {
             Touch touch = Input.GetTouch(0);
