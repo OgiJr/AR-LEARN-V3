@@ -1,6 +1,5 @@
 #!/bin/bash
-if ["$#" -ne 3]
-then
+if ["$#" -ne 3]; then
 	echo "USAGE: ./setup.sh [password] [vuforia access keys] [vuforia secret key]"
 	exit 1
 fi
