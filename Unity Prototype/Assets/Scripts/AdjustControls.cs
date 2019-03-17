@@ -8,33 +8,12 @@ public class AdjustControls : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< HEAD
-
-=======
->>>>>>> f658a2ea6b44743dbdcb32d1334c0903b6b8351f
-        if (swipeControls == null)
+        if (Mathf.Abs(swipeControls.swipeDistance.y) > 50 && Mathf.Abs(swipeControls.swipeDistance.y) > Mathf.Abs(swipeControls.swipeDistance.x))
         {
-            swipeControls = this.gameObject.GetComponent<SwipeControls>();
+            transform.localScale += new Vector3(swipeControls.swipeDistance.y/200, swipeControls.swipeDistance.y/200, swipeControls.swipeDistance.y/200);
         }
 
-<<<<<<< HEAD
-        else if (Mathf.Abs(swipeControls.swipeDistance.y) > 100 && Mathf.Abs(swipeControls.swipeDistance.y) > Mathf.Abs(swipeControls.swipeDistance.x))
-        {
-            transform.localScale += new Vector3(swipeControls.swipeDistance.y,swipeControls.swipeDistance.y,swipeControls.swipeDistance.y);
-            Debug.Log(swipeControls.swipeDistance.y);
-        }
-
-        Debug.Log(swipeControls.swipeDistance.y);
-
-        if (Mathf.Abs(swipeControls.swipeDistance.x) > 100 && Mathf.Abs(swipeControls.swipeDistance.x) > Mathf.Abs(swipeControls.swipeDistance.y))
-=======
-        else if (Mathf.Abs(swipeControls.swipeDistance.y) > 0 && Mathf.Abs(swipeControls.swipeDistance.y) > Mathf.Abs(swipeControls.swipeDistance.x))
-        {
-            transform.localScale += new Vector3(swipeControls.swipeDistance.y,swipeControls.swipeDistance.y,swipeControls.swipeDistance.y);
-        }
-
-        if (Mathf.Abs(swipeControls.swipeDistance.x) > 0 && Mathf.Abs(swipeControls.swipeDistance.x) > Mathf.Abs(swipeControls.swipeDistance.y))
->>>>>>> f658a2ea6b44743dbdcb32d1334c0903b6b8351f
+        else if (Mathf.Abs(swipeControls.swipeDistance.x) > 50 && Mathf.Abs(swipeControls.swipeDistance.x) > Mathf.Abs(swipeControls.swipeDistance.y))
         {
             transform.localEulerAngles += new Vector3(0, -swipeControls.swipeDistance.x, 0);
         }
