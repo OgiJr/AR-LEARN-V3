@@ -20,8 +20,8 @@ CREATE TABLE `arlearn`.`models` (
 	`id` int NOT NULL,
 	`name` VARCHAR(255) NOT NULL,
 	`description` VARCHAR(1023) NOT NULL,
-	`packageid` VARCHAR(7) NOT NULL
-,	PRIMARY KEY (`id`));
+	`packageid` VARCHAR(7) NOT NULL,
+	PRIMARY KEY (`id`));
 ```
 
 ## Authentication

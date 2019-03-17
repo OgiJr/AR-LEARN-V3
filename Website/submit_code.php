@@ -38,23 +38,33 @@
 	}
 
 	// Check to see if request is valid
-	if(!isset($_POST["packagename"])) die("<h3> Въведете име на пакета </h3>");
-	if(!isset($_POST["packagedesc"])) die("<h3> Въведете описание на пакета </h3>");
-	if(!isset($_POST["i"])) die("<h3> Имаше проблем. Моля опитайте отново по-късно. </h3>");
-	if(mb_strlen($_POST["packagename"]) > 64) die("<h3> Името на пакета не трябва да е по дълго от 64 знака. </h3>");
-	if(mb_strlen($_POST["packagedesc"]) > 64) die("<h3> Описанието на пакета не трябва да е по дълго от 256 знака. </h3>");
+	if(!isset($_POST["packagename"]))
+		die("<h3> Въведете име на пакета </h3>");
+	if(!isset($_POST["packagedesc"]))
+		die("<h3> Въведете описание на пакета </h3>");
+	if(!isset($_POST["i"]))
+		die("<h3> Имаше проблем. Моля опитайте отново по-късно. </h3>");
+	if(mb_strlen($_POST["packagename"]) > 64)
+		die("<h3> Името на пакета не трябва да е по дълго от 64 знака. </h3>");
+	if(mb_strlen($_POST["packagedesc"]) > 64)
+		die("<h3> Описанието на пакета не трябва да е по дълго от 256 знака. </h3>");
 
 	for($i = 0; $i < intval($_POST["i"]); $i++) {
-		if(!isset($_POST["m_name${i}"])) die("<h3> Пропуснали сте името на модел " . ($i + 1) . "</h3>");
-		if(!isset($_POST["m_desc${i}"])) die("<h3> Пропуснали сте описанието на модел " . ($i + 1) . "</h3>");
-		if(!is_uploaded_file($_FILES["m_pic${i}"]["tmp_name"])) die("<h3> Пропуснали сте изображението на модел " . ($i + 1) . "</h3>");
-		if(!is_uploaded_file($_FILES["m_model${i}"]["tmp_name"])) die("<h3> Пропуснали сте модела на модел " . ($i + 1) . "</h3>");
-		if(!is_uploaded_file($_FILES["m_info${i}"]["tmp_name"])) die("<h3> Пропуснали сте информацията за модел " . ($i + 1) . "</h3>");
+		if(!isset($_POST["m_name${i}"]))
+			die("<h3> Пропуснали сте името на модел " . ($i + 1) . "</h3>");
+		if(!isset($_POST["m_desc${i}"]))
+			die("<h3> Пропуснали сте описанието на модел " . ($i + 1) . "</h3>");
+		if(!is_uploaded_file($_FILES["m_pic${i}"]["tmp_name"]))
+			die("<h3> Пропуснали сте изображението на модел " . ($i + 1) . "</h3>");
+		if(!is_uploaded_file($_FILES["m_model${i}"]["tmp_name"]))
+			die("<h3> Пропуснали сте модела на модел " . ($i + 1) . "</h3>");
+		if(!is_uploaded_file($_FILES["m_info${i}"]["tmp_name"]))
+			die("<h3> Пропуснали сте информацията за модел " . ($i + 1) . "</h3>");
 	}
 
 	// Connect to SQL DB
 	$db_servername = "localhost";
-	$db_username = "root";
+	$db_username = "rooty";
 	$db_password = "PASSWORD";
 	$db_name = "arlearn";
 	$conn = new mysqli($db_servername, $db_username, $db_password, $db_name);
@@ -79,6 +89,7 @@
 	// Create package
 	$stmt = $conn->prepare("INSERT INTO packages (id, name, description, models) VALUES (?, ?, ?, ?)");
 	checkstmt($stmt);
+	echo "AAA";
 	$stmt->bind_param("sssi", $id, $_POST["packagename"], $_POST["packagedesc"], intval($_POST["i"]));
 	$stmt->execute();
 	$stmt->close();
