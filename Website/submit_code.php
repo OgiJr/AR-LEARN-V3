@@ -9,8 +9,6 @@
 	header('Content-Type: text/html; charset=utf-8');
 	ini_set("default_charset", "UTF-8");
 	mb_internal_encoding("UTF-8");
-	iconv_set_encoding("internal_encoding", "UTF-8");
-	iconv_set_encoding("output_encoding", "UTF-8");
 
 	// Set file size limit to 100MB
 	ini_set("upload_max_filesize", "200M");
@@ -55,7 +53,7 @@
 		if(!isset($_POST["m_desc${i}"])) die("<h3> Пропуснали сте описанието на модел " . ($i + 1) . "</h3>");
 		if(!is_uploaded_file($_FILES["m_pic${i}"]["tmp_name"])) die("<h3> Пропуснали сте изображението на модел " . ($i + 1) . "</h3>");
 		if(!is_uploaded_file($_FILES["m_model${i}"]["tmp_name"])) die("<h3> Пропуснали сте модела на модел " . ($i + 1) . "</h3>");
-		if(!is_uploaded_file($_FILES["m_инфо${i}"]["tmp_name"])) die("<h3> Пропуснали сте информацията за модел " . ($i + 1) . "</h3>");
+		if(!is_uploaded_file($_FILES["m_info${i}"]["tmp_name"])) die("<h3> Пропуснали сте информацията за модел " . ($i + 1) . "</h3>");
 	}
 
 	// Connect to SQL DB
