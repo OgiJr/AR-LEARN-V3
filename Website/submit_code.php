@@ -59,7 +59,7 @@
 	// Connect to SQL DB
 	$db_servername = "localhost";
 	$db_username = "root";
-	$db_password = "<PASSWORD>";
+	$db_password = "PASSWORD";
 	$db_name = "arlearn";
 	$conn = new mysqli($db_servername, $db_username, $db_password, $db_name);
 	if($conn->connect_error)
@@ -88,8 +88,8 @@
 	$stmt->close();
 
 	// Get stuff uploaded
-	$vuforiaaccesskey = "<ACCESSKEY>";
-	$vuforiaserverkey = "<SERVERKEY>";
+	$vuforiaaccesskey = "ACCESSKEY";
+	$vuforiaserverkey = "SERVERKEY";
 	$url = "https://vws.vuforia.com/targets";
 	$modeldir = "models/";
 	$markdowndir = "markdown/";

@@ -40,7 +40,7 @@ function add() {
 			<div class="col">
 				<div class="form-group">
 					<label for="m_model${i}"> Модел </label>
-					<input type="file" class="filebutton" name="m_model${i}" accept=".fbx, .prefab" aria-describedby="m_model${i}help required>
+					<input type="file" class="filebutton" name="m_model${i}" accept=".fbx, .prefab" aria-describedby="m_model${i}help" required>
 					<small id="m_model${i}help" class="form-text text-muted">
 	                	Максимум 200MB.
 	                </small>
@@ -49,7 +49,7 @@ function add() {
 			<div class="col">
 				<div class="form-group">
 					<label for="m_info${i}"> Информация </label>
-					<input type="file" class="filebutton" name="m_info${i}" accept=".md" aria-describedby="m_info${i}help required>
+					<input type="file" class="filebutton" name="m_info${i}" accept=".md" aria-describedby="m_info${i}help" required>
 					<small id="m_info${i}help" class="form-text text-muted">
 	                	Максимум 1MB.
 	                </small>
