@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-    "name": "",
-    "short_name": "",
-=======
     "name": "ARLearn",
     "short_name": "ARL",
->>>>>>> f658a2ea6b44743dbdcb32d1334c0903b6b8351f
     "icons": [
         {
             "src": "/favicons/android-chrome-36x36.png",
@@ -55,10 +50,6 @@
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-<<<<<<< HEAD
-    "start_url": "https://http://arlearn.xyz",
-=======
     "start_url": "https://arlearn.xyz",
->>>>>>> f658a2ea6b44743dbdcb32d1334c0903b6b8351f
     "display": "standalone"
 }
