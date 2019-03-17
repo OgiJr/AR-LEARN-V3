@@ -10,7 +10,7 @@ public class AdjustControls : MonoBehaviour
     {
         if (Mathf.Abs(swipeControls.swipeDistance.y) > 50 && Mathf.Abs(swipeControls.swipeDistance.y) > Mathf.Abs(swipeControls.swipeDistance.x))
         {
-            transform.localScale += new Vector3(swipeControls.swipeDistance.y/200, swipeControls.swipeDistance.y/200, swipeControls.swipeDistance.y/200);
+            transform.position += new Vector3(0, 0, swipeControls.swipeDistance.y/200);
         }
 
         else if (Mathf.Abs(swipeControls.swipeDistance.x) > 50 && Mathf.Abs(swipeControls.swipeDistance.x) > Mathf.Abs(swipeControls.swipeDistance.y))
