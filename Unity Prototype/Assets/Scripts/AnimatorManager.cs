@@ -39,12 +39,18 @@ public class AnimatorManager : MonoBehaviour
         #region HaltAnimations
         if (Input.touchCount > 0)
         {
-            animator.enabled = false;
+            if (animator != null)
+            {
+                animator.enabled = false;
+            }
         }
 
         else
         {
-            animator.enabled = true;
+            if (animator != null)
+            {
+                animator.enabled = true;
+            }
         }
         #endregion
 

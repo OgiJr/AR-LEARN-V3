@@ -33,23 +33,28 @@ public class SwipeControls : MonoBehaviour
 
         if (changeAnimationMode == false)
         {
-            this.gameObject.GetComponent<AdjustControls>().enabled = true;
+            this.gameObject.GetComponent<Lean.Touch.LeanTranslate>().enabled = true;
+            this.gameObject.GetComponent<Lean.Touch.LeanScale>().enabled = true;
+            this.gameObject.GetComponent<Lean.Touch.LeanRotate>().enabled = true;
             this.gameObject.GetComponent<AnimatorManager>().enabled = false;
         }
         else
         {
-            this.gameObject.GetComponent<AdjustControls>().enabled = false;
+            this.gameObject.GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
+            this.gameObject.GetComponent<Lean.Touch.LeanScale>().enabled = false;
+            this.gameObject.GetComponent<Lean.Touch.LeanRotate>().enabled = false;
+
             this.gameObject.GetComponent<AnimatorManager>().enabled = true;
         }
     }
 
     internal void SwipeDetect()
     {
-        if (Input.touchCount == 1)
+        if (Input.touchCount == 1 || Input.GetMouseButton(0))
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0))
             {
                 TapCount += 1;
             }
@@ -86,13 +91,14 @@ public class SwipeControls : MonoBehaviour
 
         if (Input.touches.Length > 0)
         {
-            if (Input.touches[0].phase == TouchPhase.Began)
+            if (Input.touches[0].phase == TouchPhase.Began || Input.GetMouseButtonDown(0))
             {
                 controls[0] = true;
                 startPos = Input.touches[0].position;
+                startPos = Input.mousePosition;
                 swiping = true;
             }
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled || Input.GetMouseButtonUp(0))
             {
                 swiping = false;
                 Reset();
