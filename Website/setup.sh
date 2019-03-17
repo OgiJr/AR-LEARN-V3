@@ -6,7 +6,3 @@ fi
 sed -i "s/PASSWORD/${1}/g" submit_code.php
 sed -i "s/ACCESSKEY/${2}/g" submit_code.php
 sed -i "s/SERVERKEY/${3}/g" submit_code.php
-
-cd ..
-git stash
-cd Website
