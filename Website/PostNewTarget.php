@@ -1,5 +1,4 @@
 <?php
-
 require_once 'HTTP/Request2.php';
 require_once 'SignatureBuilder.php';
 

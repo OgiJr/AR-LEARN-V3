@@ -22,7 +22,7 @@ function add() {
 			<div class="col">
 				<div class="form-group">
 					<label for="m_desc${i}"> Описание на модела </label>
-					<textarea class="form-control" type="text" name="m_desc${i}" rows="1" maxlength="256" aria-describedby="m_desc${i}help" required>Моделът показва ...</textarea>
+					<textarea class="form-control" type="text" name="m_desc${i}" rows="1" maxlength="256" placeholder="Моделът показва ..." aria-describedby="m_desc${i}help" required></textarea>
 					<small id="m_desc${i}help" class="form-text text-muted">
 	                	Максимум 256 знака.
 	                </small>
