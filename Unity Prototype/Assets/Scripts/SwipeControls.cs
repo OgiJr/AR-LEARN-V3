@@ -40,14 +40,12 @@ public class SwipeControls : MonoBehaviour
 
         if (changeAnimationMode == false)
         {
-            this.gameObject.GetComponent<Lean.Touch.LeanTranslate>().enabled = true;
             this.gameObject.GetComponent<Lean.Touch.LeanScale>().enabled = true;
             this.gameObject.GetComponent<Lean.Touch.LeanRotate>().enabled = true;
             this.gameObject.GetComponent<AnimatorManager>().enabled = false;
         }
         else
         {
-            this.gameObject.GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
             this.gameObject.GetComponent<Lean.Touch.LeanScale>().enabled = false;
             this.gameObject.GetComponent<Lean.Touch.LeanRotate>().enabled = false;
 
