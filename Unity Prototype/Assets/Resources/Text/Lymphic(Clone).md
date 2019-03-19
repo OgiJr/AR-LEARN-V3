@@ -1,0 +1,1 @@
+The lymphatic system is part of the vascular system and an important part of the immune system, comprising a large network of lymphatic vessels that carry a clear fluid called lymph (from Latin, lympha meaning "water"[1]) directionally towards the heart. The lymphatic system was first described in the seventeenth century independently by Olaus Rudbeck and Thomas Bartholin.
