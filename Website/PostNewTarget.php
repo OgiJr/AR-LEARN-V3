@@ -1,30 +1,32 @@
 <?php
+
 require_once 'HTTP/Request2.php';
 require_once 'SignatureBuilder.php';
 
 // See the Vuforia Web Services Developer API Specification - https://developer.vuforia.com/resources/dev-guide/retrieving-target-cloud-database
 // The PostNewTarget sample demonstrates how to update the attributes of a target using a JSON request body. This example updates the target's metadata.
 
-class PostNewTarget {
+class PostNewTarget{
 
 	//Server Keys
-	private $access_key 	= "<>";
-	private $secret_key 	= "<>";
+	private $access_key 	= "[ server access key ]";
+	private $secret_key 	= "[ server secret key ]";
 	
-	//private $targetId     = "eda03583982f41cdbe9ca7f50734b9a1";
+	//private $targetId 		= "eda03583982f41cdbe9ca7f50734b9a1";
 	private $url 			= "https://vws.vuforia.com";
 	private $requestPath 	= "/targets";
 	private $request;       // the HTTP_Request2 object
 	private $jsonRequestObject;
 	
-	private $targetName;
-	private $imageLocation;
+	private $targetName 	= "[ name ]";
+	private $imageLocation 	= "[ /path/file.ext ]";
 	
-	function __construct($namee, $location, $ak, $sk){
-		$this->targetName = $namee;
-		$this->imageLocation = $location;
+	function PostNewTarget($ak, $sk, $name, $image){
 		$this->access_key = $ak;
 		$this->secret_key = $sk;
+		$this->targetName = $name;
+		$this->imageLocation = $image;
+
 		$this->jsonRequestObject = json_encode( array( 'width'=>320.0 , 'name'=>$this->targetName , 'image'=>$this->getImageAsBase64() , 'application_metadata'=>base64_encode("Vuforia test metadata") , 'active_flag'=>1 ) );
 
 		$this->execPostNewTarget();
@@ -65,9 +67,10 @@ class PostNewTarget {
 			$response = $this->request->send();
 
 			if (200 == $response->getStatus() || 201 == $response->getStatus() ) {
-				//echo $response->getBody();
+				echo $response->getBody();
 			} else {
-				die("Vuforia API Error");
+				die('Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+						$response->getReasonPhrase(). ' ' . $response->getBody());
 			}
 		} catch (HTTP_Request2_Exception $e) {
 			echo 'Error: ' . $e->getMessage();

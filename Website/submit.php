@@ -112,7 +112,7 @@
                         if(!isset($_POST["packagedesc"]))
                             die("<h3> Въведете описание на пакета </h3>");
                         if(!isset($_POST["i"]))
-                            die("<h3> Имаше проблем. Моля опитайте отново по-късно. </h3>");
+                            die("<h3> Имаше проблем с заявката. Моля опитайте отново по-късно. </h3>");
                         if(mb_strlen($_POST["packagename"]) > 64)
                             die("<h3> Името на пакета не трябва да е по дълго от 64 знака. </h3>");
                         if(mb_strlen($_POST["packagedesc"]) > 64)
@@ -152,8 +152,8 @@
                                 $stmt->close();
                                 break;
                             }
+                            $stmt->close();
                         }
-                        $stmt->close();
 
                         // Create package
                         $stmt = $conn->prepare("INSERT INTO packages (id, name, description, models) VALUES (?, ?, ?, ?)");
@@ -169,7 +169,7 @@
                         $url = "https://vws.vuforia.com/targets";
                         $modeldir = "models/";
                         $markdowndir = "markdown/";
-                        for($i = 0; $i < $_POST["i"]; $i++) {
+                        for($i = 0; $i < intval($_POST["i"]); $i++) {
                             // generate name
                             $name = "${id}_${i}";
                             // post to vuforia
