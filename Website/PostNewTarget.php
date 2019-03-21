@@ -67,7 +67,6 @@ class PostNewTarget{
 			$response = $this->request->send();
 
 			if (200 == $response->getStatus() || 201 == $response->getStatus() ) {
-				echo $response->getBody();
 			} else {
 				die('Unexpected HTTP status: ' . $response->getStatus() . ' ' .
 						$response->getReasonPhrase(). ' ' . $response->getBody());

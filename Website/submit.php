@@ -148,7 +148,7 @@
                             checkstmt($stmt);
                             $stmt->bind_param("s", $id);
                             $stmt->execute();
-                            if($stmt->num_rows > 0){
+                            if($stmt->num_rows == 0){
                                 $stmt->close();
                                 break;
                             }
@@ -158,7 +158,7 @@
                         // Create package
                         $stmt = $conn->prepare("INSERT INTO packages (id, name, description, models) VALUES (?, ?, ?, ?)");
                         checkstmt($stmt);
-                        echo "AAA";
+
                         $stmt->bind_param("sssi", $id, $_POST["packagename"], $_POST["packagedesc"], intval($_POST["i"]));
                         $stmt->execute();
                         $stmt->close();
@@ -173,7 +173,7 @@
                             // generate name
                             $name = "${id}_${i}";
                             // post to vuforia
-                            $poster = new PostNewTarget($name, $_FILES["m_pic{$i}"]["tmp_name"], $vuforiaaccesskey, $vuforiaserverkey);
+                            $poster = new PostNewTarget($vuforiaaccesskey, $vuforiaserverkey, $name, $_FILES["m_pic{$i}"]["tmp_name"]);
                             // Upload model and MD data to SQL
                             if(!file_exists($modeldir))
                                 mkdir($modeldir, 0777, true);
@@ -201,9 +201,8 @@
 
                         $conn->close();
                         echo "<h2> Пакетът е предложен! Неговото id е: ${id}</h2>"
-                            . "<button type=\"button\" class=\"btn btn-success\"> Начална страница </button>"
-                            . "<button  type=\"button\" class=\"btn btn-primary\"> Предлагане на още един пакет </button>";
-
+                            . "<button type=\"button\" class=\"btn btn-success\" onclick=\"window.location.href='index.html'\"> Начална страница </button> <br>"
+                            . "<button  type=\"button\" class=\"btn btn-primary\" onclick=\"window.location.href='submit.html'\"> Предлагане на още един пакет </button>";
                     ?>
                 </div>
             </div>

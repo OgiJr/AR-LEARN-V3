@@ -43,8 +43,6 @@ class SignatureBuilder{
 
 
 		$toDigest = $method . "\n" . $this->hexDigest . "\n" . $this->contentType . "\n" . $dateValue . "\n" . $requestPath ;
-
-		echo $toDigest;
 		
 		$shaHashed = "";
 		
