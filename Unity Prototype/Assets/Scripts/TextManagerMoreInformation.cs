@@ -12,8 +12,8 @@ public class TextManagerMoreInformation : MonoBehaviour
 
     private void Update()
     {
-            if(cloudHandler.selectedObject != null)
-            {
+        if (cloudHandler.selectedObject != null)
+        {
             TextAsset asset = Resources.Load(@"Text/" + cloudHandler.selectedObject.name) as TextAsset;
             this.gameObject.GetComponent<Text>().text = asset.text;
 
@@ -22,7 +22,7 @@ public class TextManagerMoreInformation : MonoBehaviour
 
             Sprite texture;
             texture = Resources.Load<Sprite>(@"Images/" + cloudHandler.selectedObject.name);
-            Debug.Log(texture.bounds);
+            image.color = Color.white;
             image.sprite = texture;
         }
     }

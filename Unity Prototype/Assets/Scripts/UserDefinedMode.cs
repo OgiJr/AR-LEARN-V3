@@ -76,10 +76,17 @@ public class UserDefinedMode : MonoBehaviour
         augmentationObject.transform.parent = userDefinedTarget.transform;
         augmentationObject.transform.position = Vector3.zero;
         augmentationObject.transform.eulerAngles = Vector3.zero;
+        augmentationObject.transform.localScale = sizeCalculated;
 
         if (augmentationObject.GetComponent<SizeAdjust>() == null)
         {
             augmentationObject.AddComponent<SizeAdjust>();
+        }
+
+        if (augmentationObject.GetComponent<Lean.Touch.LeanScale>() == null)
+        {
+            augmentationObject.AddComponent<Lean.Touch.LeanScale>();
+            augmentationObject.AddComponent<Lean.Touch.LeanRotate>();
         }
 
         #region Singleton
