@@ -10,17 +10,17 @@ To set up the SQL DB for the models, use the following commands.
 CREATE DATABASE arlearn CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `arlearn`.`packages` (
-	`id` VARCHAR(7) NOT NULL,
-	`name` VARCHAR(255) NOT NULL,
-	`description` VARCHAR(1023) NOT NULL,
+	`id` VARCHAR(8) NOT NULL,
+	`name` VARCHAR(256) NOT NULL,
+	`description` VARCHAR(1024) NOT NULL,
 	`models` int NOT NULL,
 	PRIMARY KEY (`id`));
 
 CREATE TABLE `arlearn`.`models` (
 	`id` int NOT NULL,
-	`name` VARCHAR(255) NOT NULL,
-	`description` VARCHAR(1023) NOT NULL,
-	`packageid` VARCHAR(7) NOT NULL,
+	`name` VARCHAR(256) NOT NULL,
+	`description` VARCHAR(1024) NOT NULL,
+	`packageid` VARCHAR(8) NOT NULL,
 	PRIMARY KEY (`id`));
 ```
 
