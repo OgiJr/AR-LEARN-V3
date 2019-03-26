@@ -65,6 +65,9 @@ public class AnimatorManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// This method creates gets the animations from the animator and structures them so that they can be modified and changed.
+    /// </summary>
     private void CreateAnimator()
     {
         animations = animator.runtimeAnimatorController.animationClips;
@@ -76,6 +79,11 @@ public class AnimatorManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Here you change the current animation via swiping.
+    /// <param name="Current Animation">The current animation variable</param>
+    /// <return>The current animation is changed to plus one when swiped to right and minus one when swiped left.</return>
+    /// </summary>
     void AnimationChange()
     {
         if (swipeControls.controls[1] == true)

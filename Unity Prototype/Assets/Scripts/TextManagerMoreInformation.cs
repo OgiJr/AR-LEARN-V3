@@ -10,6 +10,9 @@ public class TextManagerMoreInformation : MonoBehaviour
     public Text title;
     public Image image;
 
+    /// <summary>
+    /// Gets the text from the resources and applies it to the user interface.
+    /// </summary>
     private void Update()
     {
         if (cloudHandler.selectedObject != null)

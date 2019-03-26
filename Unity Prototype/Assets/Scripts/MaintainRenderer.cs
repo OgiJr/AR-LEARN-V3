@@ -6,6 +6,6 @@ public class MaintainRenderer : MonoBehaviour
 {
     void Update()
     {
-        this.gameObject.GetComponent<Renderer>().enabled = false;
+        this.gameObject.GetComponent<Renderer>().enabled = false;       
     }
 }

@@ -14,6 +14,13 @@ public class CheckNetwork : MonoBehaviour
     public GameObject scanButton;
     public GameObject exitButton;
 
+    /// <summary>
+    /// 1) Manages the user interface so that you can choose whether you want to be in offline mode or in online mode when mobile data is detected.
+    /// 2) Goes in online mode when is connected to WiFi.
+    /// 3) Goes in offline mode when there is no mobile data nor any WiFi.
+    /// <para name = "Data">The current mode, whether it is offline, online, etc.</para> 
+    /// <return>The current mode.</return>
+    /// </summary>
     private void Update()
     {
         if (Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork && changedWiFi == false)
@@ -53,11 +60,17 @@ public class CheckNetwork : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// If this button is pressed Unity loads the online mode scene.
+    /// </summary>
     public void OnlineMode()
     {
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// If this button is pressed Unity loads the offline mode scene.
+    /// </summary>
     public void OfflineMode()
     {
         SceneManager.LoadScene(1);
