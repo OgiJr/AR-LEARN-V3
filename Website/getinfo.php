@@ -18,30 +18,32 @@
     if(isset($_GET["id"])) {
 		$id = $_GET["id"];
 		$stmt = $conn->prepare("SELECT name, description, models FROM packages WHERE id = ?");
-		if($stmt && $stmt2) {
+		if($stmt) {
 			$stmt->bind_param("s", $id);
 			$stmt->execute();
 			$stmt->bind_result($name, $desc, $models);
 			$stmt->fetch();
-
-			$arePrefabs = array();
-			$stmt2 = $conn->prepare("SELECT prefab FROM models WHERE packageid = ?");
-			$stmt2->bind_param("s", $id);
-			$stmt2->execute();
-			$stmt2->bind_result($isPrefab);
-			$i = 0;
-			while($stmt2->fetch()) {
-				$arePrefabs[$i++] = $isPrefab;
-			}
-				
 			$data = array(
 				"name" => $name,
 				"description" => $desc,
 				"models" => $models,
-				"arePrefabs" => $arePrefabs
 			);
-			echo json_encode($data);
 			$stmt->close();
+			
+			$arePrefabs = array();
+			$stmt2 = $conn->prepare("SELECT prefab FROM models WHERE packageid = ?");
+			if($stmt2) {
+				$stmt2->bind_param("s", $id);
+				$stmt2->execute();
+				$stmt2->bind_result($isPrefab);
+				$i = 0;
+				while($stmt2->fetch()) {
+					$arePrefabs[$i++] = $isPrefab;
+				}
+				$data["arePrefabs"] = $arePrefabs;
+				echo json_encode($data);
+				$stmt2->close();
+			}
 		}
     }
 

@@ -41,8 +41,7 @@ public class ServerDownloader
     {
         for(int i = 0; i < p.models; i++)
         {
-            UnityWebRequest www = UnityWebRequest.Get("https://arlearn.xyz/getmodel.php?id=" + p.id + "&n=" + i);
-
+            UnityWebRequest www = UnityWebRequest.Get("https://arlearn.xyz/models/")
         }
     }
 }
