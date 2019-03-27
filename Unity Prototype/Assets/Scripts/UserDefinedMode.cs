@@ -21,6 +21,9 @@ public class UserDefinedMode : MonoBehaviour
     private bool showedError = false;
     private GameObject errorUI;
 
+    /// <summary>
+    /// Same method with resources as the CloudHandler(Open the documentation from that script for more details) but here you select the name of the gameobject and it is instantiated when you find the perfect image and press the button.
+    /// </summary>
     private void Update()
     {
         if (errorUI == null)

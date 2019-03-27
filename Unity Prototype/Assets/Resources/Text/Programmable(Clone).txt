@@ -1,0 +1,1 @@
+This object is an example of how you can program prefabs in AR Learn. You can attach C# scripts in order to program them.

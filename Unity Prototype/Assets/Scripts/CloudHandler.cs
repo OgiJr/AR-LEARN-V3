@@ -188,6 +188,9 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         tracker.TargetFinder.ClearTrackables(false);
     }
 
+    /// <summary>
+    /// The main manager for augmeting objects.
+    /// </summary>
     public void OnNewSearchResult(TargetFinder.TargetSearchResult targetSearchResult)
     {
 
@@ -209,14 +212,21 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         {
             GameObject augmentation = null;
 
+            /// <summary>
+            /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.
+            /// </summary>
             selectedObject = Instantiate(Resources.Load("Objects/" + targetSearchResult.TargetName) as GameObject);
 
             newImageTarget.transform.name = selectedObject.name + " Position";
 
+            /// <summary>
+            /// Loads and adds all of the components to the instantiated object so that you can scale it, rotate it and change its animations.
+            /// </summary>
+            #region Singleton
+
             selectedObject.AddComponent<Lean.Touch.LeanRotate>();
             selectedObject.AddComponent<Lean.Touch.LeanScale>();
 
-            #region Singleton
             if (selectedObject.GetComponent<AnimatorManager>() == null)
             {
                 animatorManager = selectedObject.AddComponent<AnimatorManager>();

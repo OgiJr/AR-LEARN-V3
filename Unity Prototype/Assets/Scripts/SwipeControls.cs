@@ -17,6 +17,9 @@ public class SwipeControls : MonoBehaviour
 
     Vector3 OGSize;
 
+    /// <summary>
+    /// Finds the original size of the gameobject.
+    /// </summary>
     private void Start()
     {
         OGSize = transform.localScale;
@@ -52,7 +55,12 @@ public class SwipeControls : MonoBehaviour
             this.gameObject.GetComponent<AnimatorManager>().enabled = true;
         }
     }
-
+    
+    /// <summary>
+    /// 1) Detects the double taps (based on if the time between the two taps is smaller than the maximum times) in order to switch between movement and animation change mode.
+    /// 2) Detects swipes based off the center touch and the radius of the movement of the finger.
+    /// 3) If the user swipes than the boolean from the array is changed.
+    /// </summary>
     internal void SwipeDetect()
     {
         Vector3 velocity = Vector3.zero;
@@ -157,6 +165,9 @@ public class SwipeControls : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Resets the position of the input of the finger when released.
+    /// </summary>
     internal void Reset()
     {
         swiping = false;
