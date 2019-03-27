@@ -192,9 +192,9 @@
 
                             move_uploaded_file($_FILES["m_model${i}"]["tmp_name"], $modeldir . "${name}.${extension}");
                             move_uploaded_file($_FILES["m_info${i}"]["tmp_name"], $markdowndir . "${name}.md");
-                            $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid) VALUES (?, ?, ?, ?)");
+                            $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid, prefab) VALUES (?, ?, ?, ?)");
                             checkstmt($stmt);
-                            $stmt->bind_param("isss", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id);
+                            $stmt->bind_param("isss", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id, ($extension == "prefab"));
                             $stmt->execute();
                             $stmt->close();
                         }
