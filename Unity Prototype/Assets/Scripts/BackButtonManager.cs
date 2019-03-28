@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Manages the back button on Android which basically does the same thing as the red cross button.
+/// </summary>
 public class BackButtonManager : MonoBehaviour
 {
     public GameObject backButton;
