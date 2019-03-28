@@ -4,6 +4,9 @@ using UnityEngine;
 using Vuforia;
 using UnityEngine.PostProcessing;
 
+/// <summary>
+/// Main vuforia handler. It takes information from the vuforia API and it augments it into the camera.
+/// </summary>
 public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 {
     private CloudRecoBehaviour mCloudRecoBehaviour;
@@ -29,9 +32,11 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     private bool detected = false;
     GameObject newImageTarget = null;
 
+    /// <summary>
+    /// Register this event handler at the cloud reco behaviour.
+    /// </summary>
     void Start()
     {
-        // register this event handler at the cloud reco behaviour
         mCloudRecoBehaviour = GetComponent<CloudRecoBehaviour>();
 
         if (mCloudRecoBehaviour)
@@ -271,6 +276,9 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         }
     }
 
+    /// <summary>
+    /// Error out if vuforia crashes.
+    /// </summary>
     private void ErrorBack()
     {
         errorUI.SetActive(false);

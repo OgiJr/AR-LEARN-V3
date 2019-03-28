@@ -15,6 +15,9 @@ public class Package
     public bool[] arePrefabs;
 }
 
+/// <summary>
+/// Download AR Packages from the server at arlearn.xyz
+/// </summary>
 public class ServerDownloader
 {
     /// <summary>
@@ -41,7 +44,7 @@ public class ServerDownloader
     {
         for(int i = 0; i < p.models; i++)
         {
-            UnityWebRequest www = UnityWebRequest.Get("https://arlearn.xyz/models/")
+            UnityWebRequest www = UnityWebRequest.Get("https://arlearn.xyz/models/");
         }
     }
 }
