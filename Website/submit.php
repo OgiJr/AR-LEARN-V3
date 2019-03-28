@@ -202,7 +202,8 @@
                             system("mv " . $bundledir . escapeshellarg($id) . ".unity3d " . $finaldir . escapeshellarg($id) . ".unity3d");
                             $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid, prefab) VALUES (?, ?, ?, ?, ?)");
                             checkstmt($stmt);
-                            $stmt->bind_param("isssi", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id, ($extension == "prefab"));
+                            $isPrefab = $extension == "prefab";
+                            $stmt->bind_param("isssi", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id, $isPrefab);
                             $stmt->execute();
                             $stmt->close();
                         }
