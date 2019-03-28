@@ -198,7 +198,10 @@
 
                             move_uploaded_file($_FILES["m_model${i}"]["tmp_name"], $modeldir . "${name}.${extension}");
                             move_uploaded_file($_FILES["m_info${i}"]["tmp_name"], $markdowndir . "${name}.md");
-                            system("unity -batchmode -quit -projectPath AssetBuilder/ -executeMethod AssetBuilder.ExportBundle " . escapeshellarg($id) . " " . escapeshellarg($_POST["i"]));
+                            $currentDir = getcwd();
+                            chdir("/opt/Unity/Editor");
+                            system("unity -batchmode -quit -nographics -projectPath " . $currentDir . "/AssetBuilder/ -executeMethod AssetBuilder.ExportBundle " . escapeshellarg($id) . " " . escapeshellarg($_POST["i"]));
+                            chdir($currentDir);
                             system("mv " . $bundledir . escapeshellarg($id) . ".unity3d " . $finaldir . escapeshellarg($id) . ".unity3d");
                             $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid, prefab) VALUES (?, ?, ?, ?, ?)");
                             checkstmt($stmt);
