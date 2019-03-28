@@ -8,8 +8,9 @@ public class AssetBuilder : Editor
     public static void ExportBundle()
     {
         String[] arguments = Environment.GetCommandLineArgs();
-        string id = arguments[7];
-        int num = Int32.Parse(arguments[8]);
+        int arlen = arguments.Length;
+        string id = arguments[arlen - 2];
+        int num = Int32.Parse(arguments[arlen - 1]);
         UnityEngine.Object[] objs = new UnityEngine.Object[num];
         UnityEngine.Object[] texts = new UnityEngine.Object[num];
         UnityEngine.Object[] final = new UnityEngine.Object[num * 2];
@@ -28,7 +29,7 @@ public class AssetBuilder : Editor
             final[0],
             final,
             bundlePath,
-            BuildAssetBundleOptions.None,
+            BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets,
             BuildTarget.Android);
     }
 }

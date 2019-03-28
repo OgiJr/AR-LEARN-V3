@@ -167,8 +167,10 @@
                         $vuforiaaccesskey = "ACCESSKEY";
                         $vuforiaserverkey = "SERVERKEY";
                         $url = "https://vws.vuforia.com/targets";
-                        $modeldir = "models/";
-                        $markdowndir = "markdown/";
+                        $modeldir = "AssetBuilder/Assets/Resources/models/";
+                        $markdowndir = "AssetBuilder/Assets/Resources/markdown/";
+                        $bundledir = "AssetBuilder/Assets/AssetBundle/";
+                        $finaldir = "final/";
                         for($i = 0; $i < intval($_POST["i"]); $i++) {
                             // generate name
                             $name = "${id}_${i}";
@@ -179,7 +181,11 @@
                                 mkdir($modeldir, 0777, true);
                             if(!file_exists($markdowndir))
                                 mkdir($markdowndir, 0777, true);
-                            
+                            if(!file_exists($bundledir))
+                                mkdir($bundledir, 0777, true);
+                            if(!file_exists($finaldir))
+                                mkdir($finaldir, 0777, true);
+
                             if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"]) != "fbx" && pathinfo($_FILES["m_model{$i}"]["name"])["extension"] != "prefab")
                                 die("<h3> Файлът за модел " . ($i + 1) . " не е FBX или Unity Prefab. </h3>");
 
@@ -192,9 +198,11 @@
 
                             move_uploaded_file($_FILES["m_model${i}"]["tmp_name"], $modeldir . "${name}.${extension}");
                             move_uploaded_file($_FILES["m_info${i}"]["tmp_name"], $markdowndir . "${name}.md");
-                            $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid, prefab) VALUES (?, ?, ?, ?)");
+                            system("unity -batchmode -quit -projectPath AssetBuilder/ -executeMethod AssetBuilder.ExportBundle " . escapeshellarg($id) . " " . escapeshellarg($_POST["i"]));
+                            system("mv " . $bundledir . escapeshellarg($id) . ".unity3d " . $finaldir . escapeshellarg($id) . ".unity3d");
+                            $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid, prefab) VALUES (?, ?, ?, ?, ?)");
                             checkstmt($stmt);
-                            $stmt->bind_param("isss", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id, ($extension == "prefab"));
+                            $stmt->bind_param("isssi", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id, ($extension == "prefab"));
                             $stmt->execute();
                             $stmt->close();
                         }
