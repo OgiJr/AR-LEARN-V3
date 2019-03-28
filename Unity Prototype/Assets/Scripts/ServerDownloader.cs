@@ -18,7 +18,7 @@ public class Package
 /// <summary>
 /// Download AR Packages from the server at arlearn.xyz
 /// </summary>
-public class ServerDownloader
+public class ServerDownloader : MonoBehaviour
 {
     /// <summary>
     /// This function returns a serializable class with info for an AR package
@@ -44,7 +44,7 @@ public class ServerDownloader
     {
         for(int i = 0; i < p.models; i++)
         {
-            UnityWebRequest www = UnityWebRequest.Get("https://arlearn.xyz/models/");
+            UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://arlearn.xyz/final/" + p.id + ".unity3d");
         }
     }
 }
