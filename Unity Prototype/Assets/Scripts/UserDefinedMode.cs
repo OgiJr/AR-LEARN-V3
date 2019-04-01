@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
 
+/// <summary>
+///  Handles the user defined mode.
+/// </summary>
 public class UserDefinedMode : MonoBehaviour
 {
     public string objectName = "";

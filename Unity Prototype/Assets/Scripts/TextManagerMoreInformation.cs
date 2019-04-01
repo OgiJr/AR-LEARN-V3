@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+///  Manages the text on the more information section. It gets it from the asset bundles from ServerDownloader
+/// </summary>
 public class TextManagerMoreInformation : MonoBehaviour
 {
     public CloudHandler cloudHandler;

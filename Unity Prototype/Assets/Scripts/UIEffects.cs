@@ -1,6 +1,9 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
+/// <summary>
+/// Handles effects and animations for the UI such as the buttons
+/// </summary>
 public class UIEffects : MonoBehaviour
 {
     public GameObject exitButton;
@@ -8,6 +11,9 @@ public class UIEffects : MonoBehaviour
 
     private Color transparent = new Color(255, 255, 255, 0);
     private Color vivid = new Color(255, 255, 255, 255);
+    /// <summary>
+    /// Exits AR Mode.
+    /// </summary>
     public void Exit()
     {
         exitButton.GetComponent<Button>().image.color = transparent;
@@ -22,6 +28,9 @@ public class UIEffects : MonoBehaviour
         Invoke("RevertExit", 2);
     }
 
+    /// <summary>
+    ///  Goes back into AR Mode
+    /// </summary>
     public void RevertExit()
     {
         exitButton.GetComponent<Animator>().enabled = false;
@@ -32,6 +41,9 @@ public class UIEffects : MonoBehaviour
         scanButton.SetActive(false);
     }
 
+    /// <summary>
+    /// Activate Scan UI
+    /// </summary>
     public void Scan()
     {
         scanButton.GetComponent<Button>().image.color = new Color(0, 0, 0, 255);
@@ -46,6 +58,9 @@ public class UIEffects : MonoBehaviour
         Invoke("RevertScan", 2);
     }
 
+    /// <summary>
+    /// Deactivate Scan UI
+    /// </summary>
     public void RevertScan()
     {
         exitButton.GetComponent<Animator>().enabled = false;

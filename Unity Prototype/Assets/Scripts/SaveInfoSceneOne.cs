@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SvaeInfoSceneOne : MonoBehaviour
+/// <summary>
+/// Save the info fom th TMPro input field.
+/// </summary>
+public class SaveInfoSceneOne : MonoBehaviour
 {
     public static string info;
 

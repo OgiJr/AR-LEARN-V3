@@ -4,11 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+/// <summary>
+/// Basically a ghetto PageViewer. IIt handles the menus.
+/// </summary>
 public class UIMenuManager : MonoBehaviour
 {
     private int state = 0;
     public GameObject[] main = new GameObject[3];
 
+    /// <summary>
+    /// Move to the left.
+    /// </summary>
     public void MinusOne()
     {
         if(state == 0)
@@ -24,6 +30,9 @@ public class UIMenuManager : MonoBehaviour
         state--;
     }
 
+    /// <summary>
+    /// Move to the right.
+    /// </summary>
     public void PlusOne()
     {
         if(state == -1)

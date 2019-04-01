@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages swipe controls for transformations of the AR Object.
+/// </summary>
 public class SwipeControls : MonoBehaviour
 {
     internal bool[] controls = { false, false, false }; //Tap, Left and Right

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Checks the network so the app can switch from and to online mode.
+/// </summary>
 public class CheckNetwork : MonoBehaviour
 {
     static private bool changedWiFi = false;

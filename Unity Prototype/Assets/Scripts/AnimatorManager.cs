@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the animation for AR Models through Unity Swipe Controls.
+/// </summary>
 public class AnimatorManager : MonoBehaviour
 {
     private Animator animator;
@@ -14,6 +17,9 @@ public class AnimatorManager : MonoBehaviour
 
     private SwipeControls swipeControls;
 
+    /// <summary>
+    /// Update the animation by checking for swipes and checking the animation state.
+    /// </summary>
     private void Update()
     {
         #region Singleton
