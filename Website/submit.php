@@ -179,10 +179,6 @@
                                 mkdir($modeldir, 0777, true);
                             if(!file_exists($markdowndir))
                                 mkdir($markdowndir, 0777, true);
-                            if(!file_exists($bundledir))
-                                mkdir($bundledir, 0777, true);
-                            if(!file_exists($finaldir))
-                                mkdir($finaldir, 0777, true);
 
                             if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"]) != "fbx" && pathinfo($_FILES["m_model{$i}"]["name"])["extension"] != "unity3d")
                                 die("<h3> Файлът за модел " . ($i + 1) . " не е FBX или Unity Asset Bundle. </h3>");
