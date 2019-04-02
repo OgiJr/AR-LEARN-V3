@@ -167,10 +167,8 @@
                         $vuforiaaccesskey = "ACCESSKEY";
                         $vuforiaserverkey = "SERVERKEY";
                         $url = "https://vws.vuforia.com/targets";
-                        $modeldir = "AssetBuilder/Assets/Resources/models/";
-                        $markdowndir = "AssetBuilder/Assets/Resources/markdown/";
-                        $bundledir = "AssetBuilder/Assets/AssetBundle/";
-                        $finaldir = "final/";
+                        $modeldir = "models/";
+                        $markdowndir = "markdown/";
                         for($i = 0; $i < intval($_POST["i"]); $i++) {
                             // generate name
                             $name = "${id}_${i}";
@@ -186,26 +184,21 @@
                             if(!file_exists($finaldir))
                                 mkdir($finaldir, 0777, true);
 
-                            if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"]) != "fbx" && pathinfo($_FILES["m_model{$i}"]["name"])["extension"] != "prefab")
+                            if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"]) != "fbx" && pathinfo($_FILES["m_model{$i}"]["name"])["extension"] != "unity3d")
                                 die("<h3> Файлът за модел " . ($i + 1) . " не е FBX или Unity Prefab. </h3>");
 
                             if(strtolower(pathinfo($_FILES["m_info{$i}"]["name"])["extension"]) != "md")
                                 die("<h3> Информационият файл за модел " . ($i + 1) . " не е Markdown. </h3>");
 
                             $extension = "fbx";
-                            if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"]) == "prefab")
+                            if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"]) == "unity3d")
                                 $extension = "prefab";
 
                             move_uploaded_file($_FILES["m_model${i}"]["tmp_name"], $modeldir . "${name}.${extension}");
                             move_uploaded_file($_FILES["m_info${i}"]["tmp_name"], $markdowndir . "${name}.md");
-                            $currentDir = getcwd();
-                            chdir("/opt/Unity/Editor");
-                            system("unity -batchmode -quit -nographics -projectPath " . $currentDir . "/AssetBuilder/ -executeMethod AssetBuilder.ExportBundle " . escapeshellarg($id) . " " . escapeshellarg($_POST["i"]));
-                            chdir($currentDir);
-                            system("mv " . $bundledir . escapeshellarg($id) . ".unity3d " . $finaldir . escapeshellarg($id) . ".unity3d");
                             $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid, prefab) VALUES (?, ?, ?, ?, ?)");
                             checkstmt($stmt);
-                            $isPrefab = $extension == "prefab";
+                            $isPrefab = ($extension == "prefab");
                             $stmt->bind_param("isssi", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id, $isPrefab);
                             $stmt->execute();
                             $stmt->close();
