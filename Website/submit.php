@@ -75,9 +75,6 @@
                         ini_set("default_charset", "UTF-8");
                         mb_internal_encoding("UTF-8");
 
-                        // Set file size limit to 100MB
-                        ini_set("upload_max_filesize", "200M");
-
                         // called on all sql statements. errors if bad
                         function checkstmt($stmt) {
                             if(!$stmt)

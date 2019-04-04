@@ -72,6 +72,7 @@
      <Compile Include="Assets\Common\Scripts\OptionsConfig.cs" />
      <Compile Include="Assets\Common\Scripts\SafeAreaManager.cs" />
      <Compile Include="Assets\Common\Scripts\SceneOrientation.cs" />
+     <Compile Include="Assets\Common\Scripts\SearchButtonHandler.cs" />
      <Compile Include="Assets\Common\Scripts\StatusMessage.cs" />
      <Compile Include="Assets\Common\Scripts\TapHandler.cs" />
      <Compile Include="Assets\Common\Scripts\TrackableSettings.cs" />

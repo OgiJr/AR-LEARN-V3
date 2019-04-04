@@ -21,6 +21,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     public GameObject scanButton;
     internal GameObject selectedObject;
     public GameObject errorUI;
+    public ServerDownloader svDownloader;
 
     private bool changeable = true;
     private bool errorShown = false;
@@ -213,14 +214,14 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
             newImageTarget = Instantiate(imageTargetTemplate.gameObject) as GameObject;
         }
 
-        if (Resources.Load("Objects/" + targetSearchResult.TargetName) != null)
+        if (svDownloader.p.bundle.Contains("/Resources/Objects" + targetSearchResult.TargetName) != null)
         {
             GameObject augmentation = null;
 
             /// <summary>
             /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.
             /// </summary>
-            selectedObject = Instantiate(Resources.Load("Objects/" + targetSearchResult.TargetName) as GameObject);
+            selectedObject = Instantiate(svDownloader.p.bundle.LoadAsset("/Resources/Objects" + targetSearchResult.TargetName) as GameObject);
 
             newImageTarget.transform.name = selectedObject.name + " Position";
 

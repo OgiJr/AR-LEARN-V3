@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Common\Editor\ConfigurePlayerSettings.cs" />
      <Compile Include="Assets\Common\Editor\OptionsConfigEditor.cs" />
+     <Compile Include="Assets\Editor\AssetBundleCreator.cs" />
      <Compile Include="Assets\Lean\Touch\Editor\LeanDocumentation.cs" />
      <Compile Include="Assets\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
