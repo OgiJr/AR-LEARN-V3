@@ -6,21 +6,21 @@ using TMPro;
 
 public class SearchButtonHandler : MonoBehaviour
 {
+    private string text;
+    public InputField textUI;
+    public ServerDownloader serverDownloader;
 
-    public Button b;
-    public GameObject t;
-    public ServerDownloader s;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        b.onClick.AddListener(() => onClickListener());
+        text = textUI.text;
+        Debug.Log(text);
     }
 
-    void onClickListener() {
-        TextMeshPro text = t.GetComponent<TextMeshPro>() as TextMeshPro;
-        text.text = "fg5znv8p";
-        s.getInfo(text.text);
-        s.downloadModels();
+    //Assign to button
+    public void Search()
+    {
+        serverDownloader.getInfo(text);
+        textUI.text = "";
+        serverDownloader.downloadModels();
     }
 }

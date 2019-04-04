@@ -32,15 +32,15 @@ public class ServerDownloader : MonoBehaviour
     /// <returns> The package class </returns>
     public void getInfo(string id)
     {
-        UnityWebRequest www = UnityWebRequest.Get("https://arlearn.xyz/getinfo.php?id=" + id);
-        www.SendWebRequest();
-        byte[] results = www.downloadHandler.data;
-
-        p = JsonUtility.FromJson<Package>(System.Text.Encoding.UTF8.GetString(results));
+        string results;
+        string url = "https://arlearn.xyz/getinfo.php?id=" + id;
+        WWW getTextWWW = new WWW(url);
+        while (!getTextWWW.isDone) ;
+        results = getTextWWW.text;
+        p = JsonUtility.FromJson<Package>(results);
         p.id = id;
         p.bundle = null;
         p.text = new string[p.models];
-        Debug.Log(JsonUtility.ToJson(p));
     }
 
     /// <summary>
