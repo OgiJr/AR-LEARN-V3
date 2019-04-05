@@ -29,21 +29,7 @@
 				"models" => $models,
 			);
 			$stmt->close();
-			
-			$arePrefabs = array();
-			$stmt2 = $conn->prepare("SELECT prefab FROM models WHERE packageid = ?");
-			if($stmt2) {
-				$stmt2->bind_param("s", $id);
-				$stmt2->execute();
-				$stmt2->bind_result($isPrefab);
-				$i = 0;
-				while($stmt2->fetch()) {
-					$arePrefabs[$i++] = $isPrefab;
-				}
-				$data["arePrefabs"] = $arePrefabs;
-				echo json_encode($data);
-				$stmt2->close();
-			}
+			echo json_encode($data);
 		}
     }
 
