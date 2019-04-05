@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
 using UnityEngine.PostProcessing;
 
@@ -22,6 +23,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     internal GameObject selectedObject;
     public GameObject errorUI;
     public ServerDownloader svDownloader;
+    public GameObject infoTextGO;
 
     private bool changeable = true;
     private bool errorShown = false;
@@ -219,6 +221,9 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
             if (svDownloader.p.bundle[i].name == targetSearchResult.TargetName)
             {
                 GameObject augmentation = null;
+
+                Text infoText = infoTextGO.GetComponent<Text>() as Text;
+                infoText.text = svDownloader.p.text[i];
 
                 /// <summary>
                 /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.

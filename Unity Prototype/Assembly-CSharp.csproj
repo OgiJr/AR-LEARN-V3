@@ -217,7 +217,6 @@
      <Compile Include="Assets\Scripts\SelectOfflineManager.cs" />
      <Compile Include="Assets\Scripts\ServerDownloader.cs" />
      <Compile Include="Assets\Scripts\SwipeControls.cs" />
-     <Compile Include="Assets\Scripts\TextManagerMoreInformation.cs" />
      <Compile Include="Assets\Scripts\UIEffects.cs" />
      <Compile Include="Assets\Scripts\UIMenuManager.cs" />
      <Compile Include="Assets\Scripts\UserDefinedMode.cs" />

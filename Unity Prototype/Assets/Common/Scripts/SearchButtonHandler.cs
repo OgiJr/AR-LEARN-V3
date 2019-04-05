@@ -15,7 +15,7 @@ public class SearchButtonHandler : MonoBehaviour
         text = textUI.text;
         Debug.Log(text);
     }
-
+        
     //Assign to button
     public void Search()
     {

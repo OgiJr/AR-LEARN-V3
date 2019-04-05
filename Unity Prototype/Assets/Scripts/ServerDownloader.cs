@@ -18,7 +18,6 @@ public class ServerDownloader : MonoBehaviour
         public string name;
         public string description;
         public int models;
-        public bool[] arePrefabs;
         public AssetBundle[] bundle;
         public string[] text;
     }
@@ -56,32 +55,21 @@ public class ServerDownloader : MonoBehaviour
 
         for (int i = 0; i < p.models; i++)
         {
-            if (p.arePrefabs[i])
+            if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d"))
             {
-                if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d"))
-                {
-                    WWW www = new WWW("https://arlearn.xyz/models/" + p.id + "_" + i + ".unity3d");
-                    while (!www.isDone) ;
-                    p.bundle[i] = www.assetBundle;
-                    System.IO.File.WriteAllBytes(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d", www.bytes);
-                }
-                else
-                {
-                    p.bundle[i] = AssetBundle.LoadFromFile(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d");
-                }
-                p.bundle[i].name = p.id + "_" + i;
+                WWW www = new WWW("https://arlearn.xyz/models/" + p.id + "_" + i + ".unity3d");
+                while (!www.isDone) ;
+                p.bundle[i] = www.assetBundle;
+                System.IO.File.WriteAllBytes(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d", www.bytes);
             }
             else
             {
-                if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".fbx"))
-                {
-
-                }
-                else
-                {
-
-                }
+                p.bundle[i] = AssetBundle.LoadFromFile(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d");
             }
+            p.bundle[i].name = p.id + "_" + i;
+            WWW www1 = new WWW("https://arlearn.xyz/markdown/" + p.id + "_" + i + ".md");
+            while (!www1.isDone) ;
+            p.text[i] = www1.text;
         }
     }
 
