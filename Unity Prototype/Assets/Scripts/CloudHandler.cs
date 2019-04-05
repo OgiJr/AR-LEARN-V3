@@ -101,7 +101,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                     }
                 }
 
-                if(selectedObject.GetComponentInChildren<AudioSource>() != null)
+                if (selectedObject.GetComponentInChildren<AudioSource>() != null)
                 {
                     foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
                     {
@@ -168,7 +168,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
             Destroy(newImageTarget);
         }
 
-        if(Camera.main.gameObject.GetComponent<PostProcessingBehaviour>() != null)
+        if (Camera.main.gameObject.GetComponent<PostProcessingBehaviour>() != null)
         {
             Camera.main.gameObject.GetComponent<PostProcessingBehaviour>().enabled = false;
         }
@@ -214,66 +214,72 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
             newImageTarget = Instantiate(imageTargetTemplate.gameObject) as GameObject;
         }
 
-        if (svDownloader.p.bundle.Contains("/Resources/Objects" + targetSearchResult.TargetName) != null)
+        for (int i = 0; i < svDownloader.p.models; i++)
         {
-            GameObject augmentation = null;
-
-            /// <summary>
-            /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.
-            /// </summary>
-            selectedObject = Instantiate(svDownloader.p.bundle.LoadAsset("/Resources/Objects" + targetSearchResult.TargetName) as GameObject);
-
-            newImageTarget.transform.name = selectedObject.name + " Position";
-
-            /// <summary>
-            /// Loads and adds all of the components to the instantiated object so that you can scale it, rotate it and change its animations.
-            /// </summary>
-            #region Singleton
-
-            selectedObject.AddComponent<Lean.Touch.LeanRotate>();
-            selectedObject.AddComponent<Lean.Touch.LeanScale>();
-
-            if (selectedObject.GetComponent<AnimatorManager>() == null)
+            if (svDownloader.p.bundle[i].name == targetSearchResult.TargetName)
             {
-                animatorManager = selectedObject.AddComponent<AnimatorManager>();
-            }
+                GameObject augmentation = null;
 
-            else
-            {
-                animatorManager = selectedObject.GetComponent<AnimatorManager>();
-            }
+                /// <summary>
+                /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.
+                /// </summary>
+                selectedObject = Instantiate(svDownloader.p.bundle[i].mainAsset as GameObject);
+                selectedObject.transform.parent = newImageTarget.transform;
+                selectedObject.transform.position = Vector3.zero;
+                selectedObject.transform.position += new Vector3(0.0f, 0.0f, -1f);
+                selectedObject.transform.localScale = new Vector3(20f, 20f, 20f);
+                newImageTarget.transform.name = selectedObject.name + " Position";
 
-            if (selectedObject.GetComponent<SwipeControls>() == null)
-            {
-                swipeControls = selectedObject.AddComponent<SwipeControls>();
-            }
+                /// <summary>
+                /// Loads and adds all of the components to the instantiated object so that you can scale it, rotate it and change its animations.
+                /// </summary>
+                #region Singleton
 
-            else
-            {
-                swipeControls = selectedObject.GetComponent<SwipeControls>();
-            }
-            #endregion
+                selectedObject.AddComponent<Lean.Touch.LeanRotate>();
+                selectedObject.AddComponent<Lean.Touch.LeanScale>();
 
-            if (augmentation != null)
-            {
-                augmentation.transform.SetParent(newImageTarget.transform);
-            }
+                if (selectedObject.GetComponent<AnimatorManager>() == null)
+                {
+                    animatorManager = selectedObject.AddComponent<AnimatorManager>();
+                }
 
-            if (imageTargetTemplate)
-            {
-                ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
-                ImageTargetBehaviour imageTargetBehaviour = (ImageTargetBehaviour)tracker.TargetFinder.EnableTracking(targetSearchResult, newImageTarget);
-            }
+                else
+                {
+                    animatorManager = selectedObject.GetComponent<AnimatorManager>();
+                }
 
-            else if (errorShown == false)
-            {
-                errorShown = true;
-                errorUI.SetActive(true);
-                Invoke("ErrorBack", 5);
-            }
+                if (selectedObject.GetComponent<SwipeControls>() == null)
+                {
+                    swipeControls = selectedObject.AddComponent<SwipeControls>();
+                }
 
-            instantiated = true;
-            detected = true;
+                else
+                {
+                    swipeControls = selectedObject.GetComponent<SwipeControls>();
+                }
+                #endregion
+
+                if (augmentation != null)
+                {
+                    augmentation.transform.SetParent(newImageTarget.transform);
+                }
+
+                if (imageTargetTemplate)
+                {
+                    ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+                    ImageTargetBehaviour imageTargetBehaviour = (ImageTargetBehaviour)tracker.TargetFinder.EnableTracking(targetSearchResult, newImageTarget);
+                }
+
+                else if (errorShown == false)
+                {
+                    errorShown = true;
+                    errorUI.SetActive(true);
+                    Invoke("ErrorBack", 5);
+                }
+
+                instantiated = true;
+                detected = true;
+            }
         }
     }
 

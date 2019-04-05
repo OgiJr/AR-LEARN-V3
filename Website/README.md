@@ -21,7 +21,6 @@ CREATE TABLE `arlearn`.`models` (
 	`name` VARCHAR(256) NOT NULL,
 	`description` VARCHAR(1024) NOT NULL,
 	`packageid` VARCHAR(8) NOT NULL,
-	`prefab` int(1) NOT NULL,
 	PRIMARY KEY (`id`));
 ```
 

@@ -6,7 +6,7 @@
 
     // Connect to SQL DB
     $db_servername = "localhost";
-    $db_username = "rooty";
+    $db_username = "root";
     $db_password = "PASSWORD";
     $db_name = "arlearn";
     $conn = new mysqli($db_servername, $db_username, $db_password, $db_name);

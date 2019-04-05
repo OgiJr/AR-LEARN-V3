@@ -83,10 +83,6 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
-     <Compile Include="Assets\Examples\BiologyCellsPack\Demo\Scripts\BtnEvents.cs" />
-     <Compile Include="Assets\Examples\BiologyCellsPack\Demo\Scripts\ChangeRenderQueue.cs" />
-     <Compile Include="Assets\Examples\BiologyCellsPack\Demo\Scripts\MouseOrbitSample.cs" />
-     <Compile Include="Assets\Examples\Example Animations\Solar System Examples\ChangingPlanets.cs" />
      <Compile Include="Assets\Examples\Example Scripts\CameraManager.cs" />
      <Compile Include="Assets\Examples\Example Scripts\ChangeSun.cs" />
      <Compile Include="Assets\Examples\Example Scripts\CircSystem.cs" />

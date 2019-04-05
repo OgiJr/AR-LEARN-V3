@@ -19,7 +19,7 @@ public class ServerDownloader : MonoBehaviour
         public string description;
         public int models;
         public bool[] arePrefabs;
-        public AssetBundle bundle;
+        public AssetBundle[] bundle;
         public string[] text;
     }
 
@@ -39,7 +39,7 @@ public class ServerDownloader : MonoBehaviour
         results = getTextWWW.text;
         p = JsonUtility.FromJson<Package>(results);
         p.id = id;
-        p.bundle = null;
+        p.bundle = new AssetBundle[p.models];
         p.text = new string[p.models];
     }
 
@@ -47,33 +47,37 @@ public class ServerDownloader : MonoBehaviour
     /// Download the models and markdown files for a package
     /// </summary>
     /// <param name="p"> Package whose models to download </param>
-    public IEnumerator downloadModels()
+    public void downloadModels()
     {
+        if (!System.IO.Directory.Exists(Application.persistentDataPath + "/assets"))
+        {
+            System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/assets");
+        }
+
         for (int i = 0; i < p.models; i++)
         {
             if (p.arePrefabs[i])
             {
-                if (!System.IO.Directory.Exists("file://" + Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d"))
+                if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d"))
                 {
-                    UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle("https://arlearn.xyz/models/" + p.id + "_" + i + ".unity3d");
-                    yield return www.SendWebRequest();
-                    p.bundle = DownloadHandlerAssetBundle.GetContent(www);
-                    System.IO.File.WriteAllBytes("file://" + Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d", www.downloadHandler.data);
-                } else
-                {
-                    AssetBundleCreateRequest bundle = AssetBundle.LoadFromFileAsync("file://" + Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d");
-                    yield return bundle;
-                    p.bundle = bundle.assetBundle;
+                    WWW www = new WWW("https://arlearn.xyz/models/" + p.id + "_" + i + ".unity3d");
+                    while (!www.isDone) ;
+                    p.bundle[i] = www.assetBundle;
+                    System.IO.File.WriteAllBytes(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d", www.bytes);
                 }
-
-                Debug.Log(p.bundle.GetAllAssetNames());
+                else
+                {
+                    p.bundle[i] = AssetBundle.LoadFromFile(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d");
+                }
+                p.bundle[i].name = p.id + "_" + i;
             }
             else
             {
-                if(!System.IO.Directory.Exists("file://" + Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".fbx"))
+                if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".fbx"))
                 {
 
-                } else
+                }
+                else
                 {
 
                 }

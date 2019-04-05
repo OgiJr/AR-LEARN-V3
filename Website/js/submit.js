@@ -40,9 +40,9 @@ function add() {
 			<div class="col">
 				<div class="form-group">
 					<label for="m_model${i}"> Модел </label>
-					<input type="file" class="filebutton" name="m_model${i}" accept=".fbx, .unity3d" aria-describedby="m_model${i}help" required>
+					<input type="file" class="filebutton" name="m_model${i}" accept=".unity3d" aria-describedby="m_model${i}help" required>
 					<small id="m_model${i}help" class="form-text text-muted">
-	                	Максимум 200MB. FBX или Unity3D.
+	                	Максимум 200MB, Unity3D.
 	                </small>
 				</div>
 			</div>

@@ -177,22 +177,17 @@
                             if(!file_exists($markdowndir))
                                 mkdir($markdowndir, 0777, true);
 
-                            if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"]) != "fbx" && pathinfo($_FILES["m_model{$i}"]["name"])["extension"] != "unity3d")
-                                die("<h3> Файлът за модел " . ($i + 1) . " не е FBX или Unity Asset Bundle. </h3>");
+                            if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"] != "unity3d"))
+                                die("<h3> Файлът за модел " . ($i + 1) . " не е Unity Asset Bundle. </h3>");
 
                             if(strtolower(pathinfo($_FILES["m_info{$i}"]["name"])["extension"]) != "md")
                                 die("<h3> Информационият файл за модел " . ($i + 1) . " не е Markdown. </h3>");
 
-                            $extension = "fbx";
-                            if(strtolower(pathinfo($_FILES["m_model{$i}"]["name"])["extension"]) == "unity3d")
-                                $extension = "unity3d";
-
-                            move_uploaded_file($_FILES["m_model${i}"]["tmp_name"], $modeldir . "${name}.${extension}");
+                            move_uploaded_file($_FILES["m_model${i}"]["tmp_name"], $modeldir . "${name}.unity3d");
                             move_uploaded_file($_FILES["m_info${i}"]["tmp_name"], $markdowndir . "${name}.md");
-                            $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid, prefab) VALUES (?, ?, ?, ?, ?)");
+                            $stmt = $conn->prepare("INSERT INTO models (id, name, description, packageid) VALUES (?, ?, ?, ?)");
                             checkstmt($stmt);
-                            $isPrefab = ($extension == "unity3d");
-                            $stmt->bind_param("isssi", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id, $isPrefab);
+                            $stmt->bind_param("isss", $i, $_POST["m_name${i}"], $_POST["m_desc${i}"], $id);
                             $stmt->execute();
                             $stmt->close();
                         }
