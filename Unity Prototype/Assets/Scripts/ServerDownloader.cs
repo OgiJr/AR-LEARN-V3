@@ -27,7 +27,6 @@ public class ServerDownloader : MonoBehaviour
     internal WWW getTextWWW;
 
     public Package p;
-    public GameObject loadingScreen;
 
     /// <summary>
     /// This function returns a serializable class with info for an AR package
@@ -39,7 +38,6 @@ public class ServerDownloader : MonoBehaviour
         string results;
         string url = "https://arlearn.xyz/getinfo.php?id=" + id;
         getTextWWW = new WWW(url);
-        loadingScreen.SetActive(true);
         while (!getTextWWW.isDone);
         results = getTextWWW.text;
         p = JsonUtility.FromJson<Package>(results);
@@ -54,8 +52,6 @@ public class ServerDownloader : MonoBehaviour
     /// <param name="p"> Package whose models to download </param>
     public void downloadModels()
     {
-        loadingScreen.SetActive(true);
-
         if (!System.IO.Directory.Exists(Application.persistentDataPath + "/assets"))
         {
             System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/assets");
@@ -63,10 +59,10 @@ public class ServerDownloader : MonoBehaviour
 
         for (int i = 0; i < p.models; i++)
         {
+            Debug.Log("Mitchell");
             if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d"))
             {
                 www = new WWW("https://arlearn.xyz/models/" + p.id + "_" + i + ".unity3d");
-                loadingScreen.SetActive(true);
                 while (!www.isDone);
                 p.bundle[i] = www.assetBundle;
                 System.IO.File.WriteAllBytes(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d", www.bytes);
@@ -80,8 +76,5 @@ public class ServerDownloader : MonoBehaviour
             while (!www1.isDone);
             p.text[i] = www1.text;
         }
-
-        loadingScreen.SetActive(false);
     }
-
 }

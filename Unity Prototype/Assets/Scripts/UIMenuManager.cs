@@ -24,15 +24,13 @@ public class UIMenuManager : MonoBehaviour
             focused = true;
             scanButton.GetComponent<Animator>().enabled = false;
             scanButton.GetComponent<Image>().color = new Color(0,0,0,0);
-            Debug.Log("Howard");
         }
-        else if(!search.isFocused && focused && loadingScreen.activeSelf == false)
+        else if(!search.isFocused && focused)
         {
-            main[3].GetComponent<RectTransform>().DOAnchorPos(new Vector3(0,1500,0), 0.5f);
+            main[3].GetComponent<RectTransform>().DOAnchorPos(new Vector3(0,1500,0), 1);
             focused = false;
             scanButton.GetComponent<Animator>().enabled = true;
             scanButton.GetComponent<Image>().color = new Color(0, 0, 0, 255);
-            Debug.Log("Mitchell");
         }
     }
 
