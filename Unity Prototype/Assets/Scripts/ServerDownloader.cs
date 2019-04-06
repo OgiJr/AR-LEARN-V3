@@ -22,7 +22,12 @@ public class ServerDownloader : MonoBehaviour
         public string[] text;
     }
 
+    internal WWW www;
+    internal WWW www1;
+    internal WWW getTextWWW;
+
     public Package p;
+    public GameObject loadingScreen;
 
     /// <summary>
     /// This function returns a serializable class with info for an AR package
@@ -33,8 +38,9 @@ public class ServerDownloader : MonoBehaviour
     {
         string results;
         string url = "https://arlearn.xyz/getinfo.php?id=" + id;
-        WWW getTextWWW = new WWW(url);
-        while (!getTextWWW.isDone) ;
+        getTextWWW = new WWW(url);
+        loadingScreen.SetActive(true);
+        while (!getTextWWW.isDone);
         results = getTextWWW.text;
         p = JsonUtility.FromJson<Package>(results);
         p.id = id;
@@ -57,8 +63,9 @@ public class ServerDownloader : MonoBehaviour
         {
             if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d"))
             {
-                WWW www = new WWW("https://arlearn.xyz/models/" + p.id + "_" + i + ".unity3d");
-                while (!www.isDone) ;
+                www = new WWW("https://arlearn.xyz/models/" + p.id + "_" + i + ".unity3d");
+                loadingScreen.SetActive(true);
+                while (!www.isDone);
                 p.bundle[i] = www.assetBundle;
                 System.IO.File.WriteAllBytes(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d", www.bytes);
             }
@@ -67,10 +74,12 @@ public class ServerDownloader : MonoBehaviour
                 p.bundle[i] = AssetBundle.LoadFromFile(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d");
             }
             p.bundle[i].name = p.id + "_" + i;
-            WWW www1 = new WWW("https://arlearn.xyz/markdown/" + p.id + "_" + i + ".md");
-            while (!www1.isDone) ;
+            www1 = new WWW("https://arlearn.xyz/markdown/" + p.id + "_" + i + ".md");
+            while (!www1.isDone);
             p.text[i] = www1.text;
         }
+
+        loadingScreen.SetActive(false);
     }
 
 }
