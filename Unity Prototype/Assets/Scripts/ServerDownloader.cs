@@ -54,6 +54,8 @@ public class ServerDownloader : MonoBehaviour
     /// <param name="p"> Package whose models to download </param>
     public void downloadModels()
     {
+        loadingScreen.SetActive(true);
+
         if (!System.IO.Directory.Exists(Application.persistentDataPath + "/assets"))
         {
             System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/assets");
