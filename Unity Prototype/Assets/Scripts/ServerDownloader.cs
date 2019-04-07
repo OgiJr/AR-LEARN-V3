@@ -28,6 +28,11 @@ public class ServerDownloader : MonoBehaviour
 
     public Package p;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     /// <summary>
     /// This function returns a serializable class with info for an AR package
     /// </summary>
@@ -44,6 +49,7 @@ public class ServerDownloader : MonoBehaviour
         p.id = id;
         p.bundle = new AssetBundle[p.models];
         p.text = new string[p.models];
+        PlayerPrefs.SetString("ID", id);
     }
 
     /// <summary>

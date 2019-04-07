@@ -24,23 +24,36 @@ public class UserDefinedMode : MonoBehaviour
     private bool showedError = false;
     private GameObject errorUI;
 
+    public ServerDownloader serverDownloader;
+
+    private void Start()
+    {
+        serverDownloader.getInfo(PlayerPrefs.GetString("ID"));
+        serverDownloader.downloadModels();
+    }
+
     /// <summary>
     /// Same method with resources as the CloudHandler(Open the documentation from that script for more details) but here you select the name of the gameobject and it is instantiated when you find the perfect image and press the button.
     /// </summary>
     private void Update()
     {
+        if (serverDownloader != null)
+        {
+            serverDownloader = GameObject.Find("ServerDownloader").GetComponent<ServerDownloader>();
+        }
+
         if (errorUI == null)
         {
             errorUI = GameObject.Find("ErrorUI");
             errorUI.SetActive(false);
         }
 
-        if(udtEventHandler == null)
+        if (udtEventHandler == null)
         {
             udtEventHandler = this.gameObject.GetComponent<UDTEventHandler>();
         }
 
-        if(objectName == string.Empty)
+        if (objectName == string.Empty)
         {
             Debug.Log("Please select an object");
         }
@@ -58,19 +71,19 @@ public class UserDefinedMode : MonoBehaviour
 
         lastObjName = objectName;
 
-        if (Resources.Load("Objects/" + objectName) != null)
+        foreach (AssetBundle ab in serverDownloader.p.bundle)
         {
-            if (augmentationObject == null)
+            if (augmentationObject == null && ab.name == objectName)
             {
-                augmentationObject = (GameObject)Instantiate(Resources.Load("Objects/" + objectName));
+                Debug.Log("fuckingcunt123");
+                augmentationObject = Instantiate(ab.mainAsset) as GameObject;
             }
-        }
-
-        else if (showedError == false)
-        {
-            errorUI.SetActive(true);
-            showedError = true;
-            Invoke("RemoveErrorScreen", 3);
+            else if (showedError == false)
+            {
+                errorUI.SetActive(true);
+                showedError = true;
+                Invoke("RemoveErrorScreen", 3);
+            }
         }
 
         Vector3 sizeCalculated = userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<Renderer>().bounds.size;
@@ -78,7 +91,7 @@ public class UserDefinedMode : MonoBehaviour
 
         userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = false;
         userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
-        
+
         augmentationObject.transform.parent = userDefinedTarget.transform;
         augmentationObject.transform.position = Vector3.zero;
         augmentationObject.transform.eulerAngles = Vector3.zero;
