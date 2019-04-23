@@ -174,6 +174,8 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         {
             Camera.main.gameObject.GetComponent<PostProcessingBehaviour>().enabled = false;
         }
+        Text infoText = infoTextGO.GetComponent<Text>() as Text;
+        infoText.text = "Please select a 3D model so that we can desplay its information.";
     }
     #endregion
 
