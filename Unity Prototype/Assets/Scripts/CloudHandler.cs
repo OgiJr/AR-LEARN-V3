@@ -70,6 +70,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         if (instantiated == true)
         {
             selectedObject.transform.position = follow.transform.GetChild(0).transform.position;
+            newImageTarget.transform.localScale = new Vector3(20f, 20f, 20f);
 
             if (follow.transform.GetChild(0).gameObject.GetComponent<Collider>().enabled == false)
             {
@@ -229,7 +230,8 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 
                 /// <summary>
                 /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.
-                /// </summary>
+                /// </summary>     
+
                 selectedObject = Instantiate(svDownloader.p.bundle[i].mainAsset as GameObject);
                 selectedObject.transform.parent = newImageTarget.transform;
                 selectedObject.transform.position = Vector3.zero;
@@ -237,6 +239,10 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                 selectedObject.transform.localScale = new Vector3(20f, 20f, 20f);
                 newImageTarget.transform.name = selectedObject.name + " Position";
 
+                if (newImageTarget.GetComponent<RectTransform>() != null)
+                {
+                    Destroy(newImageTarget.GetComponent<RectTransform>());
+                }
                 /// <summary>
                 /// Loads and adds all of the components to the instantiated object so that you can scale it, rotate it and change its animations.
                 /// </summary>
