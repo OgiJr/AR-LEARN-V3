@@ -12,4 +12,12 @@ public class SelectOfflineManager : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
+
+    public void TextRecognition()
+    {
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
 }

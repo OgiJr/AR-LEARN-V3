@@ -15,6 +15,7 @@ public class UIMenuManager : MonoBehaviour
     public GameObject loadingScreen;
     public GameObject scanButton;
     private bool focused = false;
+    public GameObject down;
 
     private void Update()
     {
@@ -70,5 +71,17 @@ public class UIMenuManager : MonoBehaviour
         }
 
         state++;
+    }
+
+    public void Up()
+    {
+        main[0].GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, .5f);
+        down.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-860, 940), 0.5f);
+    }
+
+    public void Down()
+    {
+        main[0].GetComponent<RectTransform>().DOAnchorPos(new Vector2(0, 3000), .5f);
+        down.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-860, 3940), 0.5f);
     }
 }
