@@ -220,6 +220,7 @@
     <Compile Include="Assets\Scripts\CheckNetwork.cs" />
     <Compile Include="Assets\Scripts\CloudHandler.cs" />
     <Compile Include="Assets\Scripts\DictionaryManager.cs" />
+    <Compile Include="Assets\Scripts\LanguageManager.cs" />
     <Compile Include="Assets\Scripts\MaintainRenderer.cs" />
     <Compile Include="Assets\Scripts\SaveInfoSceneOne.cs" />
     <Compile Include="Assets\Scripts\SelectOfflineManager.cs" />
