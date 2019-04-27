@@ -12,13 +12,16 @@ public class DictionaryManager : MonoBehaviour
     public void Search()
     {
         searchedWord = input.text;
-    }
-
-    private void Update()
-    {
-        if (searchedWord == "Заптие")
+        string url = "https://arlearn.xyz/dictionary.php?word=" + searchedWord;
+        WWW www = new WWW(url);
+        while (!www.isDone) ;
+        string results = www.text;
+        if(results == "")
         {
-            output.text = "Турски стражар у нас преди Освобождението.";
+            output.text = "The word is not in our database.";
+        } else
+        {
+            output.text = results;
         }
     }
 }

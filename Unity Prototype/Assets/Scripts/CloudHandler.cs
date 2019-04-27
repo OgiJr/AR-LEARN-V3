@@ -235,7 +235,6 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                 selectedObject = Instantiate(svDownloader.p.bundle[i].mainAsset as GameObject);
                 selectedObject.transform.parent = newImageTarget.transform;
                 selectedObject.transform.position = Vector3.zero;
-                selectedObject.transform.position += new Vector3(0.0f, 0.0f, -1f);
                 selectedObject.transform.localScale = new Vector3(20f, 20f, 20f);
                 newImageTarget.transform.name = selectedObject.name + " Position";
 
