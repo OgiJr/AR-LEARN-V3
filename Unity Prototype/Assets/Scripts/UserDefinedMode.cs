@@ -26,12 +26,6 @@ public class UserDefinedMode : MonoBehaviour
 
     public ServerDownloader serverDownloader;
 
-    private void Start()
-    {
-        serverDownloader.getInfo(PlayerPrefs.GetString("ID"));
-        serverDownloader.downloadModels();
-    }
-
     /// <summary>
     /// Same method with resources as the CloudHandler(Open the documentation from that script for more details) but here you select the name of the gameobject and it is instantiated when you find the perfect image and press the button.
     /// </summary>
@@ -40,6 +34,8 @@ public class UserDefinedMode : MonoBehaviour
         if (serverDownloader != null)
         {
             serverDownloader = GameObject.Find("ServerDownloader").GetComponent<ServerDownloader>();
+            serverDownloader.getInfo(PlayerPrefs.GetString("ID"));
+            serverDownloader.downloadModels();
         }
 
         if (errorUI == null)
@@ -53,14 +49,8 @@ public class UserDefinedMode : MonoBehaviour
             udtEventHandler = this.gameObject.GetComponent<UDTEventHandler>();
         }
 
-        if (objectName == string.Empty)
-        {
-            Debug.Log("Please select an object");
-        }
-
         #region SetString
         objectName = inputText.GetComponent<TMPro.TMP_InputField>().text;
-        Debug.Log(objectName);
         #endregion
 
         if (lastObjName != objectName)
@@ -75,7 +65,6 @@ public class UserDefinedMode : MonoBehaviour
         {
             if (augmentationObject == null && ab.name == objectName)
             {
-                Debug.Log("fuckingcunt123");
                 augmentationObject = Instantiate(ab.mainAsset) as GameObject;
             }
             else if (showedError == false)
