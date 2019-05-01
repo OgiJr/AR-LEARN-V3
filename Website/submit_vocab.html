@@ -22,8 +22,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Our CSS-->
         <link rel="stylesheet" type="text/css" href="css/base.css">
-        <link rel="stylesheet" type="text/css" href="css/authors.css">
-        <title> ARLearn: Автори </title>
+        <link rel="stylesheet" type="text/css" href="css/submit.css">
+        <title> ARLearn: Предай Дума </title>
     </head>
     <body>
         <!-- Navbar -->
@@ -66,26 +66,39 @@
         </nav>
         <!-- Hero -->
         <div id="hero">
-            <div class="card-deck">
-                <div class="card">
-                    <img class="card-img-top" src="images/boris.png">
-                    <div class="card-body">
-                        <h5 class="card-title"> Борис Радулов </h5>
-                        <p class="card-text">
-                            Github: <a href="https://github.com/BobbyRaduloff"> @BobbyRaduloff </a> <br>
-                            Email: <a href="mailto:b.radulov20@acsbg.org"> b.radulov20@acsbg.org </a>
-                        </p>
-                    </div>
+            <!-- Form -->
+            <div class="card" id="submitform">
+                <div class="card-header">
+                    Предай дума
                 </div>
-                <div class="card">
-                    <img class="card-img-top" src="images/ognyan.png">
-                    <div class="card-body">
-                        <h5 class="card-title"> Огнян Траянов </h5>
-                        <p class="card-text">
-                            Github: <a href="https://github.com/OgiJr"> @OgiJr </a> <br>
-                            Email: <a href="mailto:o.trajanov22@acsbg.org"> o.trajanov22@acsbg.org </a>
-                        </p>
-                    </div>
+                <div class="card-body">
+                    <form action="submit_vocab.php" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="packagename"> Дума </label>
+                                    <input type="text" class="form-control" name="word" placeholder="Моята дума..." aria-describedby="packagenamehelp" maxlength="64" required>
+                                    <small id="packagenamehelp" class="form-text text-muted">
+                                        Максимум 64 знака.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label> Дефиниция </label>
+                                    <textarea class="form-control" name="definition" rows="3" placeholder="Моята дефиниция..." aria-describedby="packagedeschelp" maxlength="1024" required></textarea>
+                                    <small id="packagedeschelp" class="form-text text-muted">
+                                        Максимум 1024 знака.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <input type="hidden" name="i" value="0" id="i">
+                        <input type="submit" class="btn btn-success" value="Предай">
+                    </form>
                 </div>
             </div>
         </div>
@@ -104,6 +117,8 @@
                 </div>
             </div>
         </div>
+        <!-- Our JS -->
+        <script src="js/submit.js"></script>
         <!-- Bootstrap JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

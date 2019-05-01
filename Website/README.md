@@ -22,6 +22,12 @@ CREATE TABLE `arlearn`.`models` (
 	`description` VARCHAR(1024) NOT NULL,
 	`packageid` VARCHAR(8) NOT NULL,
 	PRIMARY KEY (`id`));
+
+CREATE TABLE `arlearn`.`dictionary` (
+  `word` varchar(128) NOT NULL,
+  `definition` varchar(1024) NOT NULL,
+  PRIMARY KEY(`id`));
+
 ```
 
 ## Authentication
