@@ -44,8 +44,12 @@
                         <a class="nav-link" href="authors.html"> Автори </a>
                     </li>
                     <!-- Package Submission -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="submit.html"> Предай Пакет </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Предаване </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="submit.html"> Предай Пакет </a>
+                            <a class="dropdown-item" href="submit_vocab.html"> Предай Думи </a>
+                        </div>
                     </li>
                     <!-- Downloads -->
                     <li class="nav-item dropdown">
@@ -68,7 +72,7 @@
                     Предай Пакет
                 </div>
                 <div class="card-body">
-                    <form action="submit.php" method="POST" enctype=multipart/form-data>
+                    <form action="submit.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
