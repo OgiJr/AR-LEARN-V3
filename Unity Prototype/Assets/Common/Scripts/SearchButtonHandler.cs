@@ -15,21 +15,14 @@ public class SearchButtonHandler : MonoBehaviour
     private void Update()
     {
         text = textUI.text;
-        Debug.Log(text);
     }
 
     //Assign to button
     public void Search()
     {
-        loadingScreen.SetActive(true);
-        Invoke("StartSearch", 1);
-    }
-
-    private void StartSearch()
-    {
         if (serverDownloader.p != null && serverDownloader.p.bundle != null)
         {
-            foreach(AssetBundle ab in serverDownloader.p.bundle)
+            foreach (AssetBundle ab in serverDownloader.p.bundle)
             {
                 ab.Unload(true);
             }
@@ -37,6 +30,5 @@ public class SearchButtonHandler : MonoBehaviour
         serverDownloader.getInfo(text);
         textUI.text = "";
         serverDownloader.downloadModels();
-        loadingScreen.SetActive(false);
     }
 }
