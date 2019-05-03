@@ -51,6 +51,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     #region SwitchMode
     private void Update()
     {
+        Debug.Log(Application.persistentDataPath);
         if (mIsScanning == true && exitButton.activeSelf == false)
         {
             uiEffects.Exit();
