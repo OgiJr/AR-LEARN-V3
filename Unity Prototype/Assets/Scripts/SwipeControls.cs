@@ -92,11 +92,9 @@ public class SwipeControls : MonoBehaviour
                 if (changeAnimationMode == true)
                 {
                     changeAnimationMode = false;
-                    Debug.Log("true");
                 }
                 else
                 {
-                    Debug.Log("false");
                     changeAnimationMode = true;
                 }
             }
@@ -146,13 +144,11 @@ public class SwipeControls : MonoBehaviour
                 {
                     if (swipeDistance.x > 0)
                     {
-                        Debug.Log("left");
                         controls[2] = true;
                     }
 
                     else
                     {
-                        Debug.Log("right");
                         controls[1] = true;
                     }
                 }

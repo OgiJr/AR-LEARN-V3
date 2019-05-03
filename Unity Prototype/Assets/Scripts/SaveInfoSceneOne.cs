@@ -24,9 +24,6 @@ public class SaveInfoSceneOne : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log(info);
-
         if (saveText != null)
         {
             info = saveText.text;

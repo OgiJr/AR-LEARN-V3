@@ -18,7 +18,14 @@ public class DictionaryManager : MonoBehaviour
         string results = www.text;
         if(results == "")
         {
-            output.text = "The word is not in our database.";
+            if (PlayerPrefs.GetInt("Language") == 0)
+            {
+                output.text = "The word is not in our database.";
+            }
+            else
+            {
+                output.text = "Няма такава дума в базата ни данни.";
+            }
         } else
         {
             output.text = results;

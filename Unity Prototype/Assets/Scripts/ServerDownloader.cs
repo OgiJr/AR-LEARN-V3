@@ -65,7 +65,6 @@ public class ServerDownloader : MonoBehaviour
 
         for (int i = 0; i < p.models; i++)
         {
-            Debug.Log("Mitchell");
             if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + p.id + "_" + i + ".unity3d"))
             {
                 www = new WWW("https://arlearn.xyz/models/" + p.id + "_" + i + ".unity3d");

@@ -69,7 +69,6 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 
         if (instantiated == true)
         {
-            selectedObject.transform.position = follow.transform.GetChild(0).transform.position;
             newImageTarget.transform.localScale = new Vector3(20f, 20f, 20f);
 
             if (follow.transform.GetChild(0).gameObject.GetComponent<Collider>().enabled == false)
@@ -89,11 +88,14 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                 {
                     selectedObject.gameObject.GetComponent<Canvas>().enabled = false;
                 }
-                if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
+                if (selectedObject.transform.childCount > 0)
                 {
-                    foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+                    if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
                     {
-                        renderer.enabled = false;
+                        foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+                        {
+                            renderer.enabled = false;
+                        }
                     }
                 }
                 if (selectedObject.GetComponentInChildren<Canvas>() != null)
@@ -131,11 +133,14 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                         renderer.enabled = true;
                     }
                 }
-                if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
+                if (selectedObject.transform.childCount > 0)
                 {
-                    foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+                    if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
                     {
-                        renderer.enabled = true;
+                        foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+                        {
+                            renderer.enabled = true;
+                        }
                     }
                 }
                 if (selectedObject.GetComponentInChildren<Canvas>() != null)
@@ -234,13 +239,39 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 
                 selectedObject = Instantiate(svDownloader.p.bundle[i].mainAsset as GameObject);
                 selectedObject.transform.parent = newImageTarget.transform;
+                selectedObject.transform.position = newImageTarget.transform.GetChild(1).transform.position;
                 selectedObject.transform.position = Vector3.zero;
-                selectedObject.transform.localScale = new Vector3(20f, 20f, 20f);
+                selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
                 newImageTarget.transform.name = selectedObject.name + " Position";
+                selectedObject.transform.localEulerAngles = Vector3.zero;
+
+                if (selectedObject.GetComponent<Renderer>() != null)
+                {
+                    selectedObject.GetComponent<Renderer>().enabled = true;
+                }
+
+                if (selectedObject.GetComponentsInChildren<Renderer>() != null)
+                {
+                    foreach (Renderer rend in selectedObject.GetComponentsInChildren<Renderer>())
+                    {
+                        rend.enabled = true;
+                    }
+                }
 
                 if (newImageTarget.GetComponent<RectTransform>() != null)
                 {
                     Destroy(newImageTarget.GetComponent<RectTransform>());
+                }
+                if (selectedObject.GetComponentsInChildren<Renderer>() != null)
+                {
+                    foreach (Renderer mat in selectedObject.GetComponentsInChildren<Renderer>())
+                    {
+                        mat.material.shader = Shader.Find("Standard");
+                    }
+                }
+                if (selectedObject.GetComponent<Renderer>() != null)
+                {
+                    selectedObject.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
                 }
                 /// <summary>
                 /// Loads and adds all of the components to the instantiated object so that you can scale it, rotate it and change its animations.

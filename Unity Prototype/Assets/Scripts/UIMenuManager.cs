@@ -28,11 +28,16 @@ public class UIMenuManager : MonoBehaviour
         }
         else if(!search.isFocused && focused)
         {
-            main[3].GetComponent<RectTransform>().DOAnchorPos(new Vector3(0,1500,0), 1);
             focused = false;
-            scanButton.GetComponent<Animator>().enabled = true;
-            scanButton.GetComponent<Image>().color = new Color(0, 0, 0, 255);
+            Invoke("Remove", 0.5f);
         }
+    }
+
+    void Remove()
+    {
+        main[3].GetComponent<RectTransform>().DOAnchorPos(new Vector3(0, 1500, 0), 1);
+        scanButton.GetComponent<Animator>().enabled = true;
+        scanButton.GetComponent<Image>().color = new Color(0, 0, 0, 255);
     }
 
     /// <summary>
