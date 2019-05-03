@@ -15,5 +15,12 @@ public class BaseModelsFixed : MonoBehaviour
         {
             GameObject.Find("PlantCell(Clone)").transform.localPosition = new Vector3(25, 0, 150);
         }
+        if (GameObject.Find("Programmable(Clone)"))
+        {
+            GameObject.Find("Programmable(Clone)").transform.localPosition = new Vector3(13, 0, -100);
+            GameObject.Find("Programmable(Clone)").transform.GetChild(1).transform.localPosition = new Vector3(-.4f,-1.2f,3.6f);
+            GameObject.Find("Programmable(Clone)").transform.GetChild(1).transform.localScale = new Vector3(.5f, .5f, .5f);
+
+        }
     }
 }
