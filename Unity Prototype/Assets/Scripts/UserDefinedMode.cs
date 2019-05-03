@@ -24,7 +24,7 @@ public class UserDefinedMode : MonoBehaviour
     private bool showedError = false;
     private GameObject errorUI;
 
-    public ServerDownloader serverDownloader;
+    public UDTLoader serverDownloader;
 
     /// <summary>
     /// Same method with resources as the CloudHandler(Open the documentation from that script for more details) but here you select the name of the gameobject and it is instantiated when you find the perfect image and press the button.
@@ -33,9 +33,7 @@ public class UserDefinedMode : MonoBehaviour
     {
         if (serverDownloader != null)
         {
-            serverDownloader = GameObject.Find("ServerDownloader").GetComponent<ServerDownloader>();
-            serverDownloader.getInfo(PlayerPrefs.GetString("ID"));
-            serverDownloader.downloadModels();
+            serverDownloader = GameObject.Find("UDTLoader").GetComponent<UDTLoader>();
         }
 
         if (errorUI == null)
@@ -61,19 +59,7 @@ public class UserDefinedMode : MonoBehaviour
 
         lastObjName = objectName;
 
-        foreach (AssetBundle ab in serverDownloader.p.bundle)
-        {
-            if (augmentationObject == null && ab.name == objectName)
-            {
-                augmentationObject = Instantiate(ab.mainAsset) as GameObject;
-            }
-            else if (showedError == false)
-            {
-                errorUI.SetActive(true);
-                showedError = true;
-                Invoke("RemoveErrorScreen", 3);
-            }
-        }
+        augmentationObject = serverDownloader.load(PlayerPrefs.GetString("ID"));
 
         Vector3 sizeCalculated = userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<Renderer>().bounds.size;
         userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
