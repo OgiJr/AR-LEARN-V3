@@ -48,7 +48,7 @@ public class UserDefinedMode : MonoBehaviour
         }
 
         #region SetString
-        objectName = inputText.GetComponent<TMPro.TMP_InputField>().text;
+        objectName = PlayerPrefs.GetString("UDTID");
         #endregion
 
         if (lastObjName != objectName)
@@ -59,8 +59,10 @@ public class UserDefinedMode : MonoBehaviour
 
         lastObjName = objectName;
 
-        augmentationObject = serverDownloader.load(PlayerPrefs.GetString("ID"));
-
+        if (augmentationObject == null)
+        {
+            augmentationObject = (GameObject)Instantiate(serverDownloader.load(PlayerPrefs.GetString("UDTID")));
+        }
         Vector3 sizeCalculated = userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<Renderer>().bounds.size;
         userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
 

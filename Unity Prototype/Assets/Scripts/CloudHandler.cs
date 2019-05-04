@@ -51,7 +51,6 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     #region SwitchMode
     private void Update()
     {
-        Debug.Log(Application.persistentDataPath);
         if (mIsScanning == true && exitButton.activeSelf == false)
         {
             uiEffects.Exit();
@@ -233,6 +232,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 
                 Text infoText = infoTextGO.GetComponent<Text>() as Text;
                 infoText.text = svDownloader.p.text[i];
+                Debug.Log(svDownloader.p.text[0]);
 
                 /// <summary>
                 /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.

@@ -8,16 +8,33 @@ using UnityEngine;
 public class UDTLoader : MonoBehaviour
 {
     public GameObject current;
-    private GameObject errorUI;
+    public GameObject errorUI;
+    private bool loaded = false;
 
     public GameObject load(string name)
     {
-        errorUI = GameObject.Find("ErrorUI");
-        if(!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + name + ".unity3d")){
-            errorUI.SetActive(true);
+        AssetBundle.UnloadAllAssetBundles(true);
+        Debug.Log(Application.persistentDataPath + "/assets/" + name + ".unity3d");
+        Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/assets/" + name + ".unity3d"));
+        if (!System.IO.File.Exists(Application.persistentDataPath + "/assets/" + name + ".unity3d"))
+        {
+            if (loaded == false)
+            {
+                errorUI.SetActive(true);
+                Invoke("RemoveUI", 2);
+                loaded = true;
+            }
         }
-        AssetBundle ab = AssetBundle.LoadFromFile(Application.persistentDataPath + "/assets/" + name + ".unity3d");
-        current = Instantiate(ab.mainAsset as GameObject);
+        else
+        {
+            AssetBundle ab = AssetBundle.LoadFromFile(Application.persistentDataPath + "/assets/" + name + ".unity3d");
+            current = (GameObject)ab.mainAsset;
+        }
         return current;
+    }
+
+    private void RemoveUI()
+    {
+        errorUI.SetActive(false);
     }
 }

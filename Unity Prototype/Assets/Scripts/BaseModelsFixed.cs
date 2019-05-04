@@ -20,7 +20,11 @@ public class BaseModelsFixed : MonoBehaviour
             GameObject.Find("Programmable(Clone)").transform.localPosition = new Vector3(13, 0, -100);
             GameObject.Find("Programmable(Clone)").transform.GetChild(1).transform.localPosition = new Vector3(-.4f,-1.2f,3.6f);
             GameObject.Find("Programmable(Clone)").transform.GetChild(1).transform.localScale = new Vector3(.5f, .5f, .5f);
-
+        }
+        if (GameObject.Find("Lesson2(Clone)"))
+        {
+            GameObject.Find("Lesson2(Clone)").transform.GetChild(0).transform.localScale = new Vector3(7, 7, 7);
+            GameObject.Find("Lesson2(Clone)").transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 }

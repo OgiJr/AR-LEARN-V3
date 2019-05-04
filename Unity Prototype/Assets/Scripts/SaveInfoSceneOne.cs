@@ -18,7 +18,7 @@ public class SaveInfoSceneOne : MonoBehaviour
     {
         if (recieveText != null)
         {
-            recieveText.text = info;
+            recieveText.text = PlayerPrefs.GetString("UDTID");
         }
     }
 
@@ -26,7 +26,10 @@ public class SaveInfoSceneOne : MonoBehaviour
     {
         if (saveText != null)
         {
-            info = saveText.text;
+            PlayerPrefs.SetString("UDTID", recieveText.text);
+            info = PlayerPrefs.GetString("UDTID");
         }
+        PlayerPrefs.SetString("UDTID", recieveText.text);
+        info = PlayerPrefs.GetString("UDTID");
     }
 }

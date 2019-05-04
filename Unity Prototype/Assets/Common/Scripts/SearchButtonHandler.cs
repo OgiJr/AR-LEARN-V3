@@ -25,6 +25,7 @@ public class SearchButtonHandler : MonoBehaviour
             foreach (AssetBundle ab in serverDownloader.p.bundle)
             {
                 ab.Unload(true);
+                Debug.Log(serverDownloader.p.text[0]);
             }
         }
         serverDownloader.getInfo(text);

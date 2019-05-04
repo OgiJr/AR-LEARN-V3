@@ -28,6 +28,8 @@ public class LanguageManager : MonoBehaviour
     public Text placeHolderF;
     public Text buttonC;
 
+    public ServerDownloader serverDownloader;
+
     public void ChangeLanguage()
     {
         if (PlayerPrefs.GetInt("Language") == 1)
@@ -42,13 +44,16 @@ public class LanguageManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (this.gameObject.name == "UISystem")
         {
             if (PlayerPrefs.GetInt("Language") == 1)
             {
                 icon.sprite = bgimg;
                 placeHolderA.text = "Потърси пакет...";
-                placeHolderB.text = "Моля изберете 3D модел, за да изпишем неговата информация.";
+                if (serverDownloader.p.text == null)
+                {
+                    placeHolderB.text = "Моля изберете 3D модел, за да изпишем неговата информация.";
+                }
                 placeHolderC.text = "Името на обекта...";
                 titleA.text = "Описание на обекта";
                 titleB.text = "Изберете обект";
@@ -61,7 +66,10 @@ public class LanguageManager : MonoBehaviour
             {
                 icon.sprite = engimg;
                 placeHolderA.text = "Search Package...";
-                placeHolderB.text = "Please select a 3D model so that we can desplay its information.";
+                if (serverDownloader.p.text == null)
+                {
+                    placeHolderB.text = "Please select a 3D model so that we can desplay its information.";
+                }
                 placeHolderC.text = "Object Name...";
                 button.text = "Search";
                 titleA.text = "Object Description";
