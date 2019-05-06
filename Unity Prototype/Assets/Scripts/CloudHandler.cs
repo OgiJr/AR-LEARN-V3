@@ -174,6 +174,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         {
             Destroy(selectedObject);
             Destroy(newImageTarget);
+            instantiated = false;
         }
 
         if (Camera.main.gameObject.GetComponent<PostProcessingBehaviour>() != null)
@@ -209,11 +210,9 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     /// </summary>
     public void OnNewSearchResult(TargetFinder.TargetSearchResult targetSearchResult)
     {
-
         if (selectedObject != null)
         {
             Destroy(selectedObject);
-            Destroy(newImageTarget);
 
             selectedObject = null;
             newImageTarget = null;
@@ -232,17 +231,36 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 
                 Text infoText = infoTextGO.GetComponent<Text>() as Text;
                 infoText.text = svDownloader.p.text[i];
-                Debug.Log(svDownloader.p.text[0]);
 
                 /// <summary>
                 /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.
                 /// </summary>     
 
-                selectedObject = Instantiate(svDownloader.p.bundle[i].mainAsset as GameObject);
+                if (svDownloader.p.bundle[i].mainAsset != null)
+                {
+                    selectedObject = Instantiate(svDownloader.p.bundle[i].mainAsset as GameObject);
+                }
+                else
+                {
+                    selectedObject = GameObject.Find("ExampleObject");
+                }
                 selectedObject.transform.parent = newImageTarget.transform;
                 selectedObject.transform.position = newImageTarget.transform.GetChild(1).transform.position;
                 selectedObject.transform.position = Vector3.zero;
-                selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
+                if (selectedObject.transform.childCount > 0)
+                {
+                    foreach (Transform tr in selectedObject.GetComponentsInChildren<Transform>())
+                    {
+                        if (tr.gameObject.GetComponent<Renderer>() != null)
+                        {
+                            tr.localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
+                        }
+                    }
+                }
+                else
+                {
+                    selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
+                }
                 newImageTarget.transform.name = selectedObject.name + " Position";
                 selectedObject.transform.localEulerAngles = Vector3.zero;
 
@@ -320,7 +338,6 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                     errorUI.SetActive(true);
                     Invoke("ErrorBack", 5);
                 }
-
                 instantiated = true;
                 detected = true;
             }

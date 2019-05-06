@@ -75,7 +75,6 @@ public class ServerDownloader : MonoBehaviour
             www1 = new WWW("https://arlearn.xyz/markdown/" + p.id + "_" + i + ".md");
             while (!www1.isDone);
             p.text[i] = www1.text;
-            Debug.Log(p.text[0]);
         }
     }
 }
