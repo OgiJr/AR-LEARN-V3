@@ -267,7 +267,8 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                     selectedObject.GetComponent<Renderer>().enabled = true;
                 }
 
-                if (selectedObject.GetComponentsInChildren<Renderer>() != null)
+                if (selectedObject.GetComponentsInChildren<Renderer
+                    >() != null)
                 {
                     foreach (Renderer rend in selectedObject.GetComponentsInChildren<Renderer>())
                     {

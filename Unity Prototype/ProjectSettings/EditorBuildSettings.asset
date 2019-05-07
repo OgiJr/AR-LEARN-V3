@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UDT.unity
     guid: 89ed636faaaf34959983482a021ac4e6
-  - enabled: 1
-    path: Assets/Scenes/Text Recognition.unity
-    guid: 3b5290b9f12d2f2489f264a393bd72b6
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
