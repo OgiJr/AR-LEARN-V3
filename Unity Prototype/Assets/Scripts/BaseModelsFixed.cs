@@ -11,15 +11,11 @@ public class BaseModelsFixed : MonoBehaviour
             Destroy(GameObject.Find("Earth_Orbit(Clone)").GetComponent<SizeAdjust>());
             GameObject.Find("Earth_Orbit(Clone)").transform.GetChild(0).GetComponent<Transform>().localScale = new Vector3(1.02f, 1.02f, 1.02f);
         }
-        if (GameObject.Find("PlantCell(Clone)"))
+        if (GameObject.Find("Circulatory_System(Clone)"))
         {
-            GameObject.Find("PlantCell(Clone)").transform.localPosition = new Vector3(25, 0, 150);
-        }
-        if (GameObject.Find("Programmable(Clone)"))
-        {
-            GameObject.Find("Programmable(Clone)").transform.localPosition = new Vector3(13, 0, -100);
-            GameObject.Find("Programmable(Clone)").transform.GetChild(1).transform.localPosition = new Vector3(-.4f, -1.2f, 3.6f);
-            GameObject.Find("Programmable(Clone)").transform.GetChild(1).transform.localScale = new Vector3(.5f, .5f, .5f);
+            Destroy(GameObject.Find("Circulatory_System(Clone)").GetComponent<Animator>());
+            GameObject.Find("Circulatory_System(Clone)").transform.localEulerAngles = new Vector3(-90, 90, 90);
+            GameObject.Find("Circulatory_System(Clone)").transform.localPosition = new Vector3(0, -30, -20);
         }
         if (GameObject.Find("Lesson2(Clone)"))
         {
@@ -32,7 +28,6 @@ public class BaseModelsFixed : MonoBehaviour
         if (GameObject.Find("Shelling&Ribs_&(Clone)"))
         {
             GameObject.Find("Shelling&Ribs_&(Clone)").transform.GetChild(0).transform.eulerAngles = new Vector3(-180, -90, -90);
-            //GameObject.Find("Shelling&Ribs_&(Clone)").transform.GetChild(0).transform.position = new Vector3(-330, 100, 1700);
         }
         if (GameObject.Find("Thin_Features_&(Clone)"))
         {

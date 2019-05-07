@@ -212,8 +212,6 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     {
         if (selectedObject != null)
         {
-            Destroy(selectedObject);
-
             selectedObject = null;
             newImageTarget = null;
         }
