@@ -243,21 +243,32 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                     selectedObject = GameObject.Find("ExampleObject");
                 }
                 selectedObject.transform.parent = newImageTarget.transform;
-                selectedObject.transform.position = newImageTarget.transform.GetChild(1).transform.position;
                 selectedObject.transform.position = Vector3.zero;
-                if (selectedObject.transform.childCount > 0)
+                #region OldVersion
+                //if (selectedObject.transform.childCount > 1)
+                //{
+                //    foreach (Transform tr in selectedObject.GetComponentsInChildren<Transform>())
+                //    {
+                //        if (tr.gameObject.GetComponent<Renderer>() != null)
+                //        {
+                //            tr.localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                //    selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
+                //}
+                #endregion
+                if(selectedObject.GetComponent<Renderer>() != null)
                 {
-                    foreach (Transform tr in selectedObject.GetComponentsInChildren<Transform>())
-                    {
-                        if (tr.gameObject.GetComponent<Renderer>() != null)
-                        {
-                            tr.localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
-                        }
-                    }
+                    selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
+                    selectedObject.GetComponent<Collider>().bounds = new Vector3(0, 0, 0);
+
                 }
                 else
                 {
-                    selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
+
                 }
                 newImageTarget.transform.name = selectedObject.name + " Position";
                 selectedObject.transform.localEulerAngles = Vector3.zero;
