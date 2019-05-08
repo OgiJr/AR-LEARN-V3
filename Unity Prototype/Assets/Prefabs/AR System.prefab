@@ -94,9 +94,11 @@ MonoBehaviour:
   exitButton: {fileID: 0}
   scanButton: {fileID: 0}
   errorUI: {fileID: 0}
+  svDownloader: {fileID: 0}
+  infoTextGO: {fileID: 0}
   exitAnimator: {fileID: 9100000, guid: 8690c00f9b8dc914f9999a7eb8fc2bd1, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: f4ccdf56be6bdf84f85e4773a3df0600, type: 2}
   uiEffects: {fileID: 0}
+  transparent: {fileID: 2100000, guid: f18b6003064025547b6839221e0f4143, type: 2}
 --- !u!1 &4399341803871461334
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +143,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BackGroundColor: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}

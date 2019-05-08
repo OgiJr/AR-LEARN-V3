@@ -24,11 +24,6 @@ public class SaveInfoSceneOne : MonoBehaviour
 
     private void Update()
     {
-        if (saveText != null)
-        {
-            PlayerPrefs.SetString("UDTID", recieveText.text);
-            info = PlayerPrefs.GetString("UDTID");
-        }
         PlayerPrefs.SetString("UDTID", recieveText.text);
         info = PlayerPrefs.GetString("UDTID");
     }

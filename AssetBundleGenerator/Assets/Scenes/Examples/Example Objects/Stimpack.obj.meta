@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: d4e3c1dd10b8f14438e679ce40a119f0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Base
+    100002: Body
+    100004: Ch_o
+    100006: Misc
+    100008: Misc_1
+    100010: Neck
+    100012: Piercing
+    100014: Pressure_control
+    100016: Siringua
+    100018: //RootNode
+    100020: Tube02
+    100022: Wier_entrace
+    100024: Wire_01
+    100026: Wire_02
+    100028: Wire_exit
+    100030: Wire_in
+    100032: Wire_out
+    400000: Base
+    400002: Body
+    400004: Ch_o
+    400006: Misc
+    400008: Misc_1
+    400010: Neck
+    400012: Piercing
+    400014: Pressure_control
+    400016: Siringua
+    400018: //RootNode
+    400020: Tube02
+    400022: Wier_entrace
+    400024: Wire_01
+    400026: Wire_02
+    400028: Wire_exit
+    400030: Wire_in
+    400032: Wire_out
+    2100000: BaseMat
+    2100002: BodyMat
+    2100004: Ch_oMat
+    2100006: MiscMat
+    2100008: Misc_1Mat
+    2100010: NeckMat
+    2100012: PiercingMat
+    2100014: Pressure_controlMat
+    2100016: SiringuaMat
+    2100018: Tube02Mat
+    2100020: Wier_entraceMat
+    2100022: Wire_01Mat
+    2100024: Wire_02Mat
+    2100026: Wire_exitMat
+    2100028: Wire_inMat
+    2100030: Wire_outMat
+    2300000: Base
+    2300002: Body
+    2300004: Ch_o
+    2300006: Misc
+    2300008: Misc_1
+    2300010: Neck
+    2300012: Piercing
+    2300014: Pressure_control
+    2300016: Siringua
+    2300018: Tube02
+    2300020: Wier_entrace
+    2300022: Wire_01
+    2300024: Wire_02
+    2300026: Wire_exit
+    2300028: Wire_in
+    2300030: Wire_out
+    3300000: Base
+    3300002: Body
+    3300004: Ch_o
+    3300006: Misc
+    3300008: Misc_1
+    3300010: Neck
+    3300012: Piercing
+    3300014: Pressure_control
+    3300016: Siringua
+    3300018: Tube02
+    3300020: Wier_entrace
+    3300022: Wire_01
+    3300024: Wire_02
+    3300026: Wire_exit
+    3300028: Wire_in
+    3300030: Wire_out
+    4300000: Base
+    4300002: Body
+    4300004: Ch_o
+    4300006: Misc
+    4300008: Misc_1
+    4300010: Neck
+    4300012: Piercing
+    4300014: Pressure_control
+    4300016: Siringua
+    4300018: Tube02
+    4300020: Wier_entrace
+    4300022: Wire_01
+    4300024: Wire_02
+    4300026: Wire_exit
+    4300028: Wire_in
+    4300030: Wire_out
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

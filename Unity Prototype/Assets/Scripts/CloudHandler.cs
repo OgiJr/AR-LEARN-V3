@@ -35,6 +35,8 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     private bool detected = false;
     GameObject newImageTarget = null;
 
+    public Material transparent;
+
     /// <summary>
     /// Register this event handler at the cloud reco behaviour.
     /// </summary>
@@ -243,33 +245,62 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                     selectedObject = GameObject.Find("ExampleObject");
                 }
                 selectedObject.transform.parent = newImageTarget.transform;
-                selectedObject.transform.position = Vector3.zero;
                 #region OldVersion
-                //if (selectedObject.transform.childCount > 1)
-                //{
-                //    foreach (Transform tr in selectedObject.GetComponentsInChildren<Transform>())
-                //    {
-                //        if (tr.gameObject.GetComponent<Renderer>() != null)
-                //        {
-                //            tr.localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
-                //        }
-                //    }
-                //}
-                //else
-                //{
-                //    selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
-                //}
-                #endregion
-                if(selectedObject.GetComponent<Renderer>() != null)
+                if (selectedObject.transform.childCount > 1)
                 {
-                    selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
-                    selectedObject.GetComponent<Collider>().bounds = new Vector3(0, 0, 0);
+                    bool noRend = false;
 
+                    if (selectedObject.GetComponent<MeshRenderer>() == null)
+                    {
+                        selectedObject.AddComponent<MeshRenderer>();
+                        noRend = true;
+                    }
+                    else
+                    {
+                        noRend = false;
+                    }
+
+                    if (selectedObject.GetComponent<MeshFilter>() == null)
+                    {
+                        selectedObject.AddComponent<MeshFilter>();
+                        selectedObject.GetComponent<MeshFilter>().mesh = newImageTarget.transform.GetChild(1).gameObject.GetComponent<MeshFilter>().mesh;
+                    }
+                    else { noRend = false; }
+
+                    selectedObject.transform.localScale = Vector3.one;
+
+                    Bounds bounds = selectedObject.GetComponent<Renderer>().bounds;
+                    Bounds b = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds;
+
+                    selectedObject.transform.localScale = Vector3.one;
+
+                    foreach (Renderer rend in selectedObject.GetComponentsInChildren<Renderer>())
+                    {
+                        if (selectedObject.GetComponent<Renderer>() != rend)
+                        {
+                            bounds.Encapsulate(rend.bounds);
+                        }
+                    }
+
+                    Vector3 obj1_size = bounds.max - bounds.min;
+                    Vector3 obj2_size = b.max - b.min;
+
+                    Vector3 size = new Vector3(30, 30, 30);
+
+                    selectedObject.transform.localScale = selectedObject.transform.localScale * (componentMax(size) / componentMax(obj1_size));
+                    newImageTarget.transform.GetChild(1).transform.localScale = newImageTarget.transform.GetChild(1).transform.localScale * (componentMax(size) / componentMax(obj2_size));
+
+                    if (noRend == true)
+                    {
+                        Destroy(selectedObject.GetComponent<Renderer>());
+                    }
                 }
                 else
                 {
-
+                    selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
                 }
+                selectedObject.transform.localPosition = newImageTarget.transform.GetChild(1).gameObject.transform.localPosition;
+                #endregion
                 newImageTarget.transform.name = selectedObject.name + " Position";
                 selectedObject.transform.localEulerAngles = Vector3.zero;
 
@@ -278,8 +309,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                     selectedObject.GetComponent<Renderer>().enabled = true;
                 }
 
-                if (selectedObject.GetComponentsInChildren<Renderer
-                    >() != null)
+                if (selectedObject.GetComponentsInChildren<Renderer>() != null)
                 {
                     foreach (Renderer rend in selectedObject.GetComponentsInChildren<Renderer>())
                     {
@@ -352,6 +382,16 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                 detected = true;
             }
         }
+    }
+
+    float componentMax(Vector3 a)
+    {
+        return Mathf.Max(Mathf.Max(a.x, a.y), a.z);
+    }
+
+    Vector3 div(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
     }
 
     /// <summary>

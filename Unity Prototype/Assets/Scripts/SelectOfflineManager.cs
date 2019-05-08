@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SelectOfflineManager : MonoBehaviour
 {
     public Text text;
+    public ServerDownloader svDownloader;
 
     public void SelectObject()
     {
@@ -14,6 +15,10 @@ public class SelectOfflineManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             SceneManager.LoadScene(1);
+        }
+        foreach (AssetBundle ab in svDownloader.p.bundle)
+        {
+            ab.Unload(true);
         }
     }
 
