@@ -11,6 +11,16 @@ public class BaseModelsFixed : MonoBehaviour
             Destroy(GameObject.Find("Circulatory_System(Clone)").GetComponent<Animator>());
             GameObject.Find("Circulatory_System(Clone)").transform.localEulerAngles = new Vector3(-90, 90, 90);
         }
+        if (GameObject.Find("PlantCell(Clone)"))
+        {
+            GameObject.Find("PlantCell(Clone)").transform.localPosition = new Vector3(20, -25, 80);
+        }
+        if (GameObject.Find("Earth_Orbit(Clone)"))
+        {
+            Destroy(GameObject.Find("Earth_Orbit(Clone)").GetComponent<SizeAdjust>());
+            GameObject.Find("Earth_Orbit(Clone)").transform.localScale = new Vector3(20, 20, 20);
+            Destroy(GameObject.Find("Earth_Orbit(Clone)").transform.GetChild(1).gameObject);
+        }
         if (GameObject.Find("Lesson2(Clone)"))
         {
             GameObject.Find("Lesson2(Clone)").transform.eulerAngles = new Vector3(0, 180, 0);
