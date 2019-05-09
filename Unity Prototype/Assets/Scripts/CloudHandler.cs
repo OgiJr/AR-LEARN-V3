@@ -120,44 +120,47 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 
             else
             {
-                if (selectedObject.GetComponent<Renderer>() != null)
+                if (selectedObject != null)
                 {
-                    selectedObject.GetComponent<Renderer>().enabled = true;
-                }
-                if (selectedObject.GetComponent<Canvas>() != null)
-                {
-                    selectedObject.GetComponent<Canvas>().enabled = true;
-                }
-                if (selectedObject.GetComponentInChildren<Renderer>() != null)
-                {
-                    foreach (Renderer renderer in selectedObject.GetComponentsInChildren<Renderer>())
+                    if (selectedObject.GetComponent<Renderer>() != null)
                     {
-                        renderer.enabled = true;
+                        selectedObject.GetComponent<Renderer>().enabled = true;
                     }
-                }
-                if (selectedObject.transform.childCount > 0)
-                {
-                    if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
+                    if (selectedObject.GetComponent<Canvas>() != null)
                     {
-                        foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+                        selectedObject.GetComponent<Canvas>().enabled = true;
+                    }
+                    if (selectedObject.GetComponentInChildren<Renderer>() != null)
+                    {
+                        foreach (Renderer renderer in selectedObject.GetComponentsInChildren<Renderer>())
                         {
                             renderer.enabled = true;
                         }
                     }
-                }
-                if (selectedObject.GetComponentInChildren<Canvas>() != null)
-                {
-                    foreach (Canvas canvas in selectedObject.transform.GetComponentsInChildren<Canvas>())
+                    if (selectedObject.transform.childCount > 0)
                     {
-                        canvas.enabled = true;
+                        if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
+                        {
+                            foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+                            {
+                                renderer.enabled = true;
+                            }
+                        }
                     }
-                }
-
-                if (selectedObject.GetComponentInChildren<AudioSource>() != null)
-                {
-                    foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
+                    if (selectedObject.GetComponentInChildren<Canvas>() != null)
                     {
-                        audio.enabled = true;
+                        foreach (Canvas canvas in selectedObject.transform.GetComponentsInChildren<Canvas>())
+                        {
+                            canvas.enabled = true;
+                        }
+                    }
+
+                    if (selectedObject.GetComponentInChildren<AudioSource>() != null)
+                    {
+                        foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
+                        {
+                            audio.enabled = true;
+                        }
                     }
                 }
             }
@@ -177,6 +180,14 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
             Destroy(selectedObject);
             Destroy(newImageTarget);
             instantiated = false;
+        }
+
+        foreach(GameObject go in GameObject.FindObjectsOfType<GameObject>())
+        {
+            if (go.name.Contains("Position"))
+            {
+                Destroy(go);
+            }
         }
 
         if (Camera.main.gameObject.GetComponent<PostProcessingBehaviour>() != null)
