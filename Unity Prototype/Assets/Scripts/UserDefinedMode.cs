@@ -107,12 +107,12 @@ public class UserDefinedMode : MonoBehaviour
                 }
             }
 
-            Vector3 obj1_size = bounds.max - bounds.min;
-            Vector3 obj2_size = b.max - b.min;
+            Vector3 objOneSize = bounds.max - bounds.min;
+            Vector3 objTwoSize = b.max - b.min;
             Vector3 size = new Vector3(1, 1, 1);
 
-            augmentationObject.transform.localScale = augmentationObject.transform.localScale * (componentMax(size) / componentMax(obj1_size));
-            userDefinedTarget.transform.GetChild(0).transform.localScale = userDefinedTarget.transform.GetChild(0).transform.localScale * (componentMax(size) / componentMax(obj2_size));
+            augmentationObject.transform.localScale = augmentationObject.transform.localScale * (componentMax(size) / componentMax(objOneSize));
+            userDefinedTarget.transform.GetChild(0).transform.localScale = userDefinedTarget.transform.GetChild(0).transform.localScale * (componentMax(size) / componentMax(objTwoSize));
 
             if (noRend == true)
             {

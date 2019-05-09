@@ -6,11 +6,6 @@ public class BaseModelsFixed : MonoBehaviour
 {
     void Update()
     {
-        if (GameObject.Find("Earth_Orbit(Clone)"))
-        {
-            Destroy(GameObject.Find("Earth_Orbit(Clone)").GetComponent<SizeAdjust>());
-            GameObject.Find("Earth_Orbit(Clone)").transform.GetChild(0).GetComponent<Transform>().localScale = new Vector3(1.02f, 1.02f, 1.02f);
-        }
         if (GameObject.Find("Circulatory_System(Clone)"))
         {
             Destroy(GameObject.Find("Circulatory_System(Clone)").GetComponent<Animator>());

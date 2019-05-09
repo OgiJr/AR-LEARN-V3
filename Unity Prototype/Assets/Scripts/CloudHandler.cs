@@ -293,13 +293,13 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
                         }
                     }
 
-                    Vector3 obj1_size = bounds.max - bounds.min;
-                    Vector3 obj2_size = b.max - b.min;
+                    Vector3 objOneSize = bounds.max - bounds.min;
+                    Vector3 objTwoSize = b.max - b.min;
 
                     Vector3 size = new Vector3(30, 30, 30);
 
-                    selectedObject.transform.localScale = selectedObject.transform.localScale * (componentMax(size) / componentMax(obj1_size));
-                    newImageTarget.transform.GetChild(1).transform.localScale = newImageTarget.transform.GetChild(1).transform.localScale * (componentMax(size) / componentMax(obj2_size));
+                    selectedObject.transform.localScale = selectedObject.transform.localScale * (componentMax(size) / componentMax(objOneSize));
+                    newImageTarget.transform.GetChild(1).transform.localScale = newImageTarget.transform.GetChild(1).transform.localScale * (componentMax(size) / componentMax(objTwoSize));
 
                     if (noRend == true)
                     {

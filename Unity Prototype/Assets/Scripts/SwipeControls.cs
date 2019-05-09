@@ -12,8 +12,8 @@ public class SwipeControls : MonoBehaviour
     private bool swiping = false;
 
     int TapCount;
-    float MaxDubbleTapTime = .5f;
-    float NewTime;
+    float maxDoubleTapTime = .5f;
+    float newTime;
 
     public bool changeAnimationMode = false;
     private GameObject objectHandler;
@@ -84,10 +84,10 @@ public class SwipeControls : MonoBehaviour
 
             if (TapCount == 1)
             {
-                NewTime = Time.time + MaxDubbleTapTime;
+                newTime = Time.time + maxDoubleTapTime;
             }
 
-            else if (TapCount == 2 && Time.time <= NewTime)
+            else if (TapCount == 2 && Time.time <= newTime)
             {
                 if (changeAnimationMode == true)
                 {
@@ -100,7 +100,7 @@ public class SwipeControls : MonoBehaviour
             }
 
         }
-        if (Time.time > NewTime)
+        if (Time.time > newTime)
         {
             TapCount = 0;
         }
