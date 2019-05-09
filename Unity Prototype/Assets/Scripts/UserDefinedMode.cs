@@ -25,7 +25,7 @@ public class UserDefinedMode : MonoBehaviour
     private GameObject errorUI;
 
     public UDTLoader serverDownloader;
-
+    public Material transparent;
     /// <summary>
     /// Same method with resources as the CloudHandler(Open the documentation from that script for more details) but here you select the name of the gameobject and it is instantiated when you find the perfect image and press the button.
     /// </summary>
@@ -63,7 +63,6 @@ public class UserDefinedMode : MonoBehaviour
         {
             augmentationObject = (GameObject)Instantiate(serverDownloader.load(PlayerPrefs.GetString("UDTID")));
         }
-        Vector3 sizeCalculated = userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<Renderer>().bounds.size;
         userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
 
         userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -72,7 +71,59 @@ public class UserDefinedMode : MonoBehaviour
         augmentationObject.transform.parent = userDefinedTarget.transform;
         augmentationObject.transform.position = Vector3.zero;
         augmentationObject.transform.eulerAngles = Vector3.zero;
-        augmentationObject.transform.localScale = sizeCalculated;
+
+        if (augmentationObject.transform.childCount > 1)
+        {
+            bool noRend = false;
+
+            if (augmentationObject.GetComponent<MeshRenderer>() == null)
+            {
+                augmentationObject.AddComponent<MeshRenderer>();
+                noRend = true;
+            }
+            else
+            {
+                noRend = false;
+            }
+
+            if (augmentationObject.GetComponent<MeshFilter>() == null)
+            {
+                augmentationObject.AddComponent<MeshFilter>();
+                augmentationObject.GetComponent<MeshFilter>().mesh = userDefinedTarget.transform.GetChild(0).gameObject.GetComponent<MeshFilter>().mesh;
+                noRend = true;
+            }
+            else { noRend = false; }
+
+            augmentationObject.transform.localScale = Vector3.one;
+
+            Bounds bounds = augmentationObject.GetComponent<Renderer>().bounds;
+            Bounds b = userDefinedTarget.transform.GetChild(0).GetComponent<Renderer>().bounds;
+
+            foreach (Renderer rend in augmentationObject.GetComponentsInChildren<Renderer>())
+            {
+                if (augmentationObject.GetComponent<Renderer>() != rend)
+                {
+                    bounds.Encapsulate(rend.bounds);
+                }
+            }
+
+            Vector3 obj1_size = bounds.max - bounds.min;
+            Vector3 obj2_size = b.max - b.min;
+            Vector3 size = new Vector3(1, 1, 1);
+
+            augmentationObject.transform.localScale = augmentationObject.transform.localScale * (componentMax(size) / componentMax(obj1_size));
+            userDefinedTarget.transform.GetChild(0).transform.localScale = userDefinedTarget.transform.GetChild(0).transform.localScale * (componentMax(size) / componentMax(obj2_size));
+
+            if (noRend == true)
+            {
+                Debug.Log("ben shapiro");
+                augmentationObject.GetComponent<Renderer>().material = transparent;
+            }
+        }
+        else
+        {
+            augmentationObject.GetComponent<Transform>().localScale = userDefinedTarget.transform.GetChild(0).GetComponent<Renderer>().bounds.size;
+        }
 
         if (augmentationObject.GetComponent<SizeAdjust>() == null)
         {
@@ -130,5 +181,15 @@ public class UserDefinedMode : MonoBehaviour
     private void RemoveErrorScreen()
     {
         errorUI.SetActive(false);
+    }
+
+    float componentMax(Vector3 a)
+    {
+        return Mathf.Max(Mathf.Max(a.x, a.y), a.z);
+    }
+
+    Vector3 div(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
     }
 }
