@@ -116,6 +116,7 @@ public class UserDefinedMode : MonoBehaviour
 
             if (noRend == true)
             {
+                Debug.Log("ben shapiro");
                 augmentationObject.GetComponent<Renderer>().material = transparent;
             }
         }

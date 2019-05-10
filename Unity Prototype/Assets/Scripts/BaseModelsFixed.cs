@@ -11,9 +11,6 @@ public class BaseModelsFixed : MonoBehaviour
             Destroy(GameObject.Find("Circulatory_System(Clone)").GetComponent<Animator>());
             GameObject.Find("Circulatory_System(Clone)").transform.localEulerAngles = new Vector3(-90, 90, 90);
         }
-        if (GameObject.Find("Programmable(Clone)")){
-            GameObject.Find("Programmable(Clone)").transform.localPosition = new Vector3(15, -50, -100);
-        }
         if (GameObject.Find("PlantCell(Clone)"))
         {
             GameObject.Find("PlantCell(Clone)").transform.localPosition = new Vector3(20, -25, 80);
