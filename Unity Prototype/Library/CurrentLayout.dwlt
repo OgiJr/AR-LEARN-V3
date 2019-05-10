@@ -21,7 +21,11 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
+<<<<<<< HEAD
   m_MinSize: {x: 950, y: 300}
+=======
+  m_MinSize: {x: 950, y: 548}
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -38,10 +42,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 351
     y: 0
     width: 725
     height: 441
+=======
+    x: 218
+    y: 0
+    width: 455
+    height: 651
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_MinSize: {x: 204, y: 224}
   m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 20}
@@ -72,12 +83,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1520
     height: 715
   m_MinSize: {x: 681, y: 348}
   m_MaxSize: {x: 12006, y: 8048}
   vertical: 0
   controlID: 33
+=======
+    width: 950
+    height: 932
+  m_MinSize: {x: 681, y: 498}
+  m_MaxSize: {x: 14004, y: 14048}
+  vertical: 0
+  controlID: 56
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -122,10 +142,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 351
     height: 441
   m_MinSize: {x: 202, y: 224}
   m_MaxSize: {x: 4002, y: 4024}
+=======
+    width: 218
+    height: 651
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -147,18 +174,27 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 441
     width: 1076
     height: 274
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
+=======
+    y: 651
+    width: 673
+    height: 281
+  m_MinSize: {x: 232, y: 274}
+  m_MaxSize: {x: 10002, y: 10024}
+  m_ActualView: {fileID: 17}
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_Panes:
   - {fileID: 17}
   - {fileID: 15}
   - {fileID: 22}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -179,9 +215,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1520
     height: 765
   m_MinSize: {x: 950, y: 300}
+=======
+    width: 950
+    height: 982
+  m_MinSize: {x: 950, y: 548}
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &8
 MonoBehaviour:
@@ -245,12 +287,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1076
     height: 715
   m_MinSize: {x: 406, y: 348}
   m_MaxSize: {x: 8006, y: 8048}
   vertical: 1
   controlID: 34
+=======
+    width: 673
+    height: 932
+  m_MinSize: {x: 404, y: 498}
+  m_MaxSize: {x: 10002, y: 14048}
+  vertical: 1
+  controlID: 57
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,12 +321,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1076
     height: 441
   m_MinSize: {x: 406, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
   controlID: 35
+=======
+    width: 673
+    height: 651
+  m_MinSize: {x: 404, y: 224}
+  m_MaxSize: {x: 8004, y: 4024}
+  vertical: 0
+  controlID: 58
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -871,10 +931,17 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 167}
     m_SelectedIDs: 723f0000
     m_LastClickedID: 16242
     m_ExpandedIDs: 00000000983800001c3d00009c3d0000c03d0000fa41000000ca9a3b
+=======
+    scrollPos: {x: 0, y: 120}
+    m_SelectedIDs: 24310000
+    m_LastClickedID: 12580
+    m_ExpandedIDs: 00000000202a0000be2e00004a2f00006e2f0000b6330000
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -902,7 +969,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000983800001c3d00009c3d0000c03d0000fa410000
+=======
+    m_ExpandedIDs: 00000000202a0000be2e00004a2f00006e2f0000b6330000
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1014,16 +1085,28 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 8
+<<<<<<< HEAD
     y: 81.6
     width: 349
     height: 421
+=======
+    y: 80
+    width: 216
+    height: 631
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: b099ffff
       m_LastClickedID: -26192
       m_ExpandedIDs: 609dffffe69dffff2ca0ffff74b7ffff5ec8ffff64d3ffff82d3ffff20daffff9aefffffb8efffff5cf2ffff9cf5ffff90790000
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: d4fbffff
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1067,10 +1150,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 359.2
     y: 81.6
     width: 721
     height: 421
+=======
+    x: 226
+    y: 80
+    width: 451
+    height: 631
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: a3bf52eba888ebf48b7b180e5e55ca50
   m_SceneLighting: 0
@@ -1078,9 +1168,15 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 23.878357, y: -83.525055, z: -11.318665}
     speed: 2
     m_Value: {x: 23.878357, y: -83.525055, z: -11.318665}
+=======
+    m_Target: {x: 473.2141, y: 623.81165, z: 481.79578}
+    speed: 2
+    m_Value: {x: 473.2141, y: 623.81165, z: 481.79578}
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1108,6 +1204,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: 0.057375662, y: -0.92864734, z: 0.1620961, w: 0.32870516}
     speed: 2
     m_Value: {x: 0.057375662, y: -0.92864734, z: 0.1620961, w: 0.32870516}
@@ -1115,6 +1212,15 @@ MonoBehaviour:
     m_Target: 4838.1235
     speed: 2
     m_Value: 4838.1235
+=======
+    m_Target: {x: -0.1281685, y: -0.53730255, z: 0.08302464, w: -0.8294491}
+    speed: 2
+    m_Value: {x: -0.1281685, y: -0.53730255, z: 0.08302464, w: -0.8294491}
+  m_Size:
+    m_Target: 3851.029
+    speed: 2
+    m_Value: 3851.029
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1147,10 +1253,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 359.2
     y: 81.6
     width: 721
     height: 421
+=======
+    x: 226
+    y: 80
+    width: 451
+    height: 631
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
@@ -1183,25 +1296,43 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
+<<<<<<< HEAD
       width: 721
       height: 404
     m_Scale: {x: 0.19726562, y: 0.19726562}
     m_Translation: {x: 360.5, y: 202}
+=======
+      width: 451
+      height: 614
+    m_Scale: {x: 0.23984376, y: 0.23984376}
+    m_Translation: {x: 225.5, y: 307}
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -1827.4851
       y: -1024
       width: 3654.9702
       height: 2048
+=======
+      x: -940.19543
+      y: -1280
+      width: 1880.3909
+      height: 2560
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
     m_MinimalGUI: 1
   m_defaultScale: 0.19726562
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 901.25, y: 526.25}
+=======
+  m_LastWindowPixelSize: {x: 451, y: 631}
+>>>>>>> parent of f211ab5... Revert "Merge branch 'master' of https://github.com/OgiJr/AR-LEARN-V3"
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000100000100
