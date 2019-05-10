@@ -73,7 +73,8 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         {
             newImageTarget.transform.localScale = new Vector3(20f, 20f, 20f);
 
-            if (follow.transform.GetChild(0).gameObject.GetComponent<Collider>().enabled == false)
+
+            if (follow.transform.GetChild(0).gameObject.GetComponent<Collider>().enabled == false && selectedObject != null)
             {
                 if (selectedObject.GetComponent<Renderer>() != null)
                 {

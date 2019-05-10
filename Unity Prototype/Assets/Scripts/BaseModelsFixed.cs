@@ -6,6 +6,11 @@ public class BaseModelsFixed : MonoBehaviour
 {
     void Update()
     {
+        if (GameObject.Find("Programmable(Clone)"))
+        {
+            GameObject.Find("Programmable(Clone)").transform.GetChild(1).transform.localPosition = Vector3.zero;
+            GameObject.Find("Programmable(Clone)").transform.GetChild(1).transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+        }
         if (GameObject.Find("Circulatory_System(Clone)"))
         {
             Destroy(GameObject.Find("Circulatory_System(Clone)").GetComponent<Animator>());
