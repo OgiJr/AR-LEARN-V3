@@ -75,6 +75,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         {
             newImageTarget.transform.localScale = new Vector3(20f, 20f, 20f);
 
+<<<<<<< HEAD
         //    if (follow.transform.GetChild(0).gameObject.GetComponent<Collider>().enabled == false)
         //    {
         //        if (selectedObject.GetComponent<Renderer>() != null)
@@ -166,6 +167,100 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         //            }
         //        }
         //    }
+=======
+
+            if (follow.transform.GetChild(0).gameObject.GetComponent<Collider>().enabled == false && selectedObject != null)
+            {
+                if (selectedObject.GetComponent<Renderer>() != null)
+                {
+                    selectedObject.GetComponent<Renderer>().enabled = false;
+                }
+                if (selectedObject.GetComponentInChildren<Renderer>() != null)
+                {
+                    foreach (Renderer renderer in selectedObject.GetComponentsInChildren<Renderer>())
+                    {
+                        renderer.enabled = false;
+                    }
+                }
+                if (selectedObject.gameObject.GetComponent<Canvas>() != null)
+                {
+                    selectedObject.gameObject.GetComponent<Canvas>().enabled = false;
+                }
+                if (selectedObject.transform.childCount > 0)
+                {
+                    if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
+                    {
+                        foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+                        {
+                            renderer.enabled = false;
+                        }
+                    }
+                }
+                if (selectedObject.GetComponentInChildren<Canvas>() != null)
+                {
+                    foreach (Canvas canvas in selectedObject.GetComponentsInChildren<Canvas>())
+                    {
+                        canvas.enabled = false;
+                    }
+                }
+
+                if (selectedObject.GetComponentInChildren<AudioSource>() != null)
+                {
+                    foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
+                    {
+                        audio.enabled = false;
+                    }
+                }
+            }
+
+
+            else
+            {
+                if (selectedObject != null)
+                {
+                    if (selectedObject.GetComponent<Renderer>() != null)
+                    {
+                        selectedObject.GetComponent<Renderer>().enabled = true;
+                    }
+                    if (selectedObject.GetComponent<Canvas>() != null)
+                    {
+                        selectedObject.GetComponent<Canvas>().enabled = true;
+                    }
+                    if (selectedObject.GetComponentInChildren<Renderer>() != null)
+                    {
+                        foreach (Renderer renderer in selectedObject.GetComponentsInChildren<Renderer>())
+                        {
+                            renderer.enabled = true;
+                        }
+                    }
+                    if (selectedObject.transform.childCount > 0)
+                    {
+                        if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
+                        {
+                            foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+                            {
+                                renderer.enabled = true;
+                            }
+                        }
+                    }
+                    if (selectedObject.GetComponentInChildren<Canvas>() != null)
+                    {
+                        foreach (Canvas canvas in selectedObject.transform.GetComponentsInChildren<Canvas>())
+                        {
+                            canvas.enabled = true;
+                        }
+                    }
+
+                    if (selectedObject.GetComponentInChildren<AudioSource>() != null)
+                    {
+                        foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
+                        {
+                            audio.enabled = true;
+                        }
+                    }
+                }
+            }
+>>>>>>> b4717e9a396edab719463fcae26f8f568b599962
         }
     }
 
