@@ -10,11 +10,13 @@ public class SearchButtonHandler : MonoBehaviour
     public InputField textUI;
     public ServerDownloader serverDownloader;
 
-    public GameObject loadingScreen;
-
     private void Update()
     {
         text = textUI.text;
+        if(textUI.text.Length >= 8)
+        {
+            Search();
+        }
     }
 
     //Assign to button
@@ -24,7 +26,10 @@ public class SearchButtonHandler : MonoBehaviour
         {
             foreach (AssetBundle ab in serverDownloader.p.bundle)
             {
-                ab.Unload(true);
+                if (ab != null)
+                {
+                    ab.Unload(true);
+                }
             }
         }
         serverDownloader.getInfo(text);

@@ -29,6 +29,12 @@ public class UserDefinedMode : MonoBehaviour
     /// <summary>
     /// Same method with resources as the CloudHandler(Open the documentation from that script for more details) but here you select the name of the gameobject and it is instantiated when you find the perfect image and press the button.
     /// </summary>
+
+    private void Start()
+    {
+        CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
+    }
+
     private void Update()
     {
         if (serverDownloader != null)

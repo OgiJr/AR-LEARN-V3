@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Download AR Packages from the server at arlearn.xyz
@@ -27,7 +28,8 @@ public class ServerDownloader : MonoBehaviour
     internal WWW getTextWWW;
 
     public Package p;
-
+    public Text searchText;
+    
     /// <summary>
     /// This function returns a serializable class with info for an AR package
     /// </summary>

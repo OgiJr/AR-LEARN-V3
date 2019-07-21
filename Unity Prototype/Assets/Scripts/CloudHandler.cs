@@ -37,6 +37,8 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
 
     public Material transparent;
 
+    string name = "initial";
+
     /// <summary>
     /// Register this event handler at the cloud reco behaviour.
     /// </summary>
@@ -73,97 +75,97 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
         {
             newImageTarget.transform.localScale = new Vector3(20f, 20f, 20f);
 
-            if (follow.transform.GetChild(0).gameObject.GetComponent<Collider>().enabled == false)
-            {
-                if (selectedObject.GetComponent<Renderer>() != null)
-                {
-                    selectedObject.GetComponent<Renderer>().enabled = false;
-                }
-                if (selectedObject.GetComponentInChildren<Renderer>() != null)
-                {
-                    foreach (Renderer renderer in selectedObject.GetComponentsInChildren<Renderer>())
-                    {
-                        renderer.enabled = false;
-                    }
-                }
-                if (selectedObject.gameObject.GetComponent<Canvas>() != null)
-                {
-                    selectedObject.gameObject.GetComponent<Canvas>().enabled = false;
-                }
-                if (selectedObject.transform.childCount > 0)
-                {
-                    if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
-                    {
-                        foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
-                        {
-                            renderer.enabled = false;
-                        }
-                    }
-                }
-                if (selectedObject.GetComponentInChildren<Canvas>() != null)
-                {
-                    foreach (Canvas canvas in selectedObject.GetComponentsInChildren<Canvas>())
-                    {
-                        canvas.enabled = false;
-                    }
-                }
+        //    if (follow.transform.GetChild(0).gameObject.GetComponent<Collider>().enabled == false)
+        //    {
+        //        if (selectedObject.GetComponent<Renderer>() != null)
+        //        {
+        //            selectedObject.GetComponent<Renderer>().enabled = false;
+        //        }
+        //        if (selectedObject.GetComponentInChildren<Renderer>() != null)
+        //        {
+        //            foreach (Renderer renderer in selectedObject.GetComponentsInChildren<Renderer>())
+        //            {
+        //                renderer.enabled = false;
+        //            }
+        //        }
+        //        if (selectedObject.gameObject.GetComponent<Canvas>() != null)
+        //        {
+        //            selectedObject.gameObject.GetComponent<Canvas>().enabled = false;
+        //        }
+        //        if (selectedObject.transform.childCount > 0)
+        //        {
+        //            if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
+        //            {
+        //                foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+        //                {
+        //                    renderer.enabled = false;
+        //                }
+        //            }
+        //        }
+        //        if (selectedObject.GetComponentInChildren<Canvas>() != null)
+        //        {
+        //            foreach (Canvas canvas in selectedObject.GetComponentsInChildren<Canvas>())
+        //            {
+        //                canvas.enabled = false;
+        //            }
+        //        }
 
-                if (selectedObject.GetComponentInChildren<AudioSource>() != null)
-                {
-                    foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
-                    {
-                        audio.enabled = false;
-                    }
-                }
-            }
+        //        if (selectedObject.GetComponentInChildren<AudioSource>() != null)
+        //        {
+        //            foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
+        //            {
+        //                audio.enabled = false;
+        //            }
+        //        }
+        //    }
 
 
-            else
-            {
-                if (selectedObject != null)
-                {
-                    if (selectedObject.GetComponent<Renderer>() != null)
-                    {
-                        selectedObject.GetComponent<Renderer>().enabled = true;
-                    }
-                    if (selectedObject.GetComponent<Canvas>() != null)
-                    {
-                        selectedObject.GetComponent<Canvas>().enabled = true;
-                    }
-                    if (selectedObject.GetComponentInChildren<Renderer>() != null)
-                    {
-                        foreach (Renderer renderer in selectedObject.GetComponentsInChildren<Renderer>())
-                        {
-                            renderer.enabled = true;
-                        }
-                    }
-                    if (selectedObject.transform.childCount > 0)
-                    {
-                        if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
-                        {
-                            foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
-                            {
-                                renderer.enabled = true;
-                            }
-                        }
-                    }
-                    if (selectedObject.GetComponentInChildren<Canvas>() != null)
-                    {
-                        foreach (Canvas canvas in selectedObject.transform.GetComponentsInChildren<Canvas>())
-                        {
-                            canvas.enabled = true;
-                        }
-                    }
+        //    else
+        //    {
+        //        if (selectedObject != null)
+        //        {
+        //            if (selectedObject.GetComponent<Renderer>() != null)
+        //            {
+        //                selectedObject.GetComponent<Renderer>().enabled = true;
+        //            }
+        //            if (selectedObject.GetComponent<Canvas>() != null)
+        //            {
+        //                selectedObject.GetComponent<Canvas>().enabled = true;
+        //            }
+        //            if (selectedObject.GetComponentInChildren<Renderer>() != null)
+        //            {
+        //                foreach (Renderer renderer in selectedObject.GetComponentsInChildren<Renderer>())
+        //                {
+        //                    renderer.enabled = true;
+        //                }
+        //            }
+        //            if (selectedObject.transform.childCount > 0)
+        //            {
+        //                if (selectedObject.transform.GetChild(0).GetComponentInChildren<Renderer>() == true)
+        //                {
+        //                    foreach (Renderer renderer in selectedObject.transform.GetChild(0).GetComponentsInChildren<Renderer>())
+        //                    {
+        //                        renderer.enabled = true;
+        //                    }
+        //                }
+        //            }
+        //            if (selectedObject.GetComponentInChildren<Canvas>() != null)
+        //            {
+        //                foreach (Canvas canvas in selectedObject.transform.GetComponentsInChildren<Canvas>())
+        //                {
+        //                    canvas.enabled = true;
+        //                }
+        //            }
 
-                    if (selectedObject.GetComponentInChildren<AudioSource>() != null)
-                    {
-                        foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
-                        {
-                            audio.enabled = true;
-                        }
-                    }
-                }
-            }
+        //            if (selectedObject.GetComponentInChildren<AudioSource>() != null)
+        //            {
+        //                foreach (AudioSource audio in selectedObject.GetComponentsInChildren<AudioSource>())
+        //                {
+        //                    audio.enabled = true;
+        //                }
+        //            }
+        //        }
+        //    }
         }
     }
 
@@ -182,7 +184,7 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
             instantiated = false;
         }
 
-        foreach(GameObject go in GameObject.FindObjectsOfType<GameObject>())
+        foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
         {
             if (go.name.Contains("Position"))
             {
@@ -223,186 +225,164 @@ public class CloudHandler : MonoBehaviour, ICloudRecoEventHandler
     /// </summary>
     public void OnNewSearchResult(TargetFinder.TargetSearchResult targetSearchResult)
     {
-        if (selectedObject != null)
+        if (targetSearchResult.TargetName != name)
         {
-            selectedObject = null;
-            newImageTarget = null;
-        }
+            name = targetSearchResult.TargetName;
 
-        if (newImageTarget == null)
-        {
-            newImageTarget = Instantiate(imageTargetTemplate.gameObject) as GameObject;
-        }
-
-        for (int i = 0; i < svDownloader.p.models; i++)
-        {
-            if (svDownloader.p.bundle[i].name == targetSearchResult.TargetName)
+            if (selectedObject != null)
             {
-                GameObject augmentation = null;
+                selectedObject = null;
+                newImageTarget = null;
+            }
 
-                Text infoText = infoTextGO.GetComponent<Text>() as Text;
-                infoText.text = svDownloader.p.text[i];
+            if (newImageTarget == null)
+            {
+                newImageTarget = Instantiate(imageTargetTemplate.gameObject) as GameObject;
+                newImageTarget.transform.GetChild(1).gameObject.GetComponent<Collider>().enabled = true;
+            }
 
-                /// <summary>
-                /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.
-                /// </summary>     
+            for (int i = 0; i < svDownloader.p.models; i++)
+            {
 
-                if (svDownloader.p.bundle[i].mainAsset != null)
+                if (svDownloader.p.bundle[i].name == targetSearchResult.TargetName)
                 {
-                    selectedObject = Instantiate(svDownloader.p.bundle[i].mainAsset as GameObject);
-                }
-                else
-                {
-                    selectedObject = GameObject.Find("ExampleObject");
-                }
-                selectedObject.transform.parent = newImageTarget.transform;
-                #region OldVersion
-                if (selectedObject.transform.childCount > 1)
-                {
-                    bool noRend = false;
+                    Debug.Log("az");
+                    GameObject augmentation = null;
 
-                    if (selectedObject.GetComponent<MeshRenderer>() == null)
+                    Text infoText = infoTextGO.GetComponent<Text>() as Text;
+                    infoText.text = svDownloader.p.text[i];
+
+                    /// <summary>
+                    /// Instatitates the object from the resources folder after detecting the GameObject. Then it changes the name so that we can find the game object in the scene.
+                    /// </summary>     
+                    #region Instantiate 
+                    if (svDownloader.p.bundle[i].mainAsset != null)
                     {
-                        selectedObject.AddComponent<MeshRenderer>();
-                        noRend = true;
+                        selectedObject = Instantiate(svDownloader.p.bundle[i].mainAsset as GameObject);
                     }
                     else
                     {
-                        noRend = false;
+                        selectedObject = GameObject.Find("ExampleObject");
+                    }
+                    #endregion
+
+                    //Fixes all errors that may relate to rendering.
+                    #region Rendering Issues
+                    if (selectedObject.GetComponent<Renderer>() != null)
+                    {
+                        selectedObject.GetComponent<Renderer>().enabled = true;
                     }
 
-                    if (selectedObject.GetComponent<MeshFilter>() == null)
+                    if (selectedObject.GetComponentsInChildren<Renderer>() != null)
                     {
-                        selectedObject.AddComponent<MeshFilter>();
-                        selectedObject.GetComponent<MeshFilter>().mesh = newImageTarget.transform.GetChild(1).gameObject.GetComponent<MeshFilter>().mesh;
-                    }
-                    else { noRend = false; }
-
-                    selectedObject.transform.localScale = Vector3.one;
-
-                    Bounds bounds = selectedObject.GetComponent<Renderer>().bounds;
-                    Bounds b = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds;
-
-                    selectedObject.transform.localScale = Vector3.one;
-
-                    foreach (Renderer rend in selectedObject.GetComponentsInChildren<Renderer>())
-                    {
-                        if (selectedObject.GetComponent<Renderer>() != rend)
+                        foreach (Renderer rend in selectedObject.GetComponentsInChildren<Renderer>())
                         {
-                            bounds.Encapsulate(rend.bounds);
+                            rend.enabled = true;
                         }
                     }
 
-                    Vector3 objOneSize = bounds.max - bounds.min;
-                    Vector3 objTwoSize = b.max - b.min;
-
-                    Vector3 size = new Vector3(100, 100, 100);
-
-                    selectedObject.transform.localScale = selectedObject.transform.localScale * (componentMax(size) / componentMax(objOneSize));
-                    newImageTarget.transform.GetChild(1).transform.localScale = newImageTarget.transform.GetChild(1).transform.localScale * (componentMax(size) / componentMax(objTwoSize));
-
-                    if (noRend == true)
+                    if (newImageTarget.GetComponent<RectTransform>() != null)
                     {
-                        Destroy(selectedObject.GetComponent<Renderer>());
+                        Destroy(newImageTarget.GetComponent<RectTransform>());
                     }
-                }
-                else
-                {
-                    selectedObject.GetComponent<Transform>().localScale = newImageTarget.transform.GetChild(1).GetComponent<Renderer>().bounds.size;
-                }
-                selectedObject.transform.localPosition = newImageTarget.transform.GetChild(1).gameObject.transform.localPosition;
-                #endregion
-                newImageTarget.transform.name = selectedObject.name + " Position";
-                selectedObject.transform.localEulerAngles = Vector3.zero;
-
-                if (selectedObject.GetComponent<Renderer>() != null)
-                {
-                    selectedObject.GetComponent<Renderer>().enabled = true;
-                }
-
-                if (selectedObject.GetComponentsInChildren<Renderer>() != null)
-                {
-                    foreach (Renderer rend in selectedObject.GetComponentsInChildren<Renderer>())
+                    if (selectedObject.GetComponentsInChildren<Renderer>() != null)
                     {
-                        rend.enabled = true;
+                        foreach (Renderer mat in selectedObject.GetComponentsInChildren<Renderer>())
+                        {
+                            mat.material.shader = Shader.Find("Standard");
+                        }
                     }
-                }
-
-                if (newImageTarget.GetComponent<RectTransform>() != null)
-                {
-                    Destroy(newImageTarget.GetComponent<RectTransform>());
-                }
-                if (selectedObject.GetComponentsInChildren<Renderer>() != null)
-                {
-                    foreach (Renderer mat in selectedObject.GetComponentsInChildren<Renderer>())
+                    if (selectedObject.GetComponent<Renderer>() != null)
                     {
-                        mat.material.shader = Shader.Find("Standard");
+                        selectedObject.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
                     }
-                }
-                if (selectedObject.GetComponent<Renderer>() != null)
-                {
-                    selectedObject.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
-                }
-                /// <summary>
-                /// Loads and adds all of the components to the instantiated object so that you can scale it, rotate it and change its animations.
-                /// </summary>
-                #region Singleton
+                    #endregion
 
-                selectedObject.AddComponent<Lean.Touch.LeanRotate>();
-                selectedObject.AddComponent<Lean.Touch.LeanScale>();
+                    //Standardizes all objects (their scale, position and rotation)
+                    #region Transform
+                    selectedObject.transform.parent = newImageTarget.transform;
 
-                if (selectedObject.GetComponent<AnimatorManager>() == null)
-                {
-                    animatorManager = selectedObject.AddComponent<AnimatorManager>();
-                }
+                    newImageTarget.transform.name = selectedObject.name + " Position";
 
-                else
-                {
-                    animatorManager = selectedObject.GetComponent<AnimatorManager>();
-                }
+                    selectedObject.transform.localEulerAngles = Vector3.zero;
+                    newImageTarget.transform.position = Vector3.zero;
+                    selectedObject.transform.localPosition = Vector3.zero;
 
-                if (selectedObject.GetComponent<SwipeControls>() == null)
-                {
-                    swipeControls = selectedObject.AddComponent<SwipeControls>();
-                }
+                    Bounds current = new Bounds();
+                    Bounds desired = imageTargetTemplate.gameObject.transform.GetChild(1).gameObject.GetComponent<Renderer>().bounds;
+                    Vector3 scale = new Vector3();
 
-                else
-                {
-                    swipeControls = selectedObject.GetComponent<SwipeControls>();
-                }
-                #endregion
+                    if (selectedObject.GetComponent<Renderer>() != null)
+                    {
+                        current = selectedObject.GetComponent<Renderer>().bounds;
+                    }
 
-                if (augmentation != null)
-                {
-                    augmentation.transform.SetParent(newImageTarget.transform);
-                }
+                    if (selectedObject.transform.childCount > 0)
+                    {
+                        if (selectedObject.GetComponentsInChildren<Renderer>() != null)
+                        {
+                            foreach (Renderer r in selectedObject.GetComponentsInChildren<Renderer>())
+                            {
+                                current.Encapsulate(r.bounds);
+                            }
+                        }
+                    }
 
-                if (imageTargetTemplate)
-                {
-                    ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
-                    ImageTargetBehaviour imageTargetBehaviour = (ImageTargetBehaviour)tracker.TargetFinder.EnableTracking(targetSearchResult, newImageTarget);
-                }
+                    scale = new Vector3(current.size.x / desired.size.x, current.size.y / desired.size.y, current.size.z / desired.size.z);
+                    selectedObject.transform.localScale = scale;
+                    selectedObject.transform.localScale = selectedObject.transform.localScale * 50000;
+                    #endregion
 
-                else if (errorShown == false)
-                {
-                    errorShown = true;
-                    errorUI.SetActive(true);
-                    Invoke("ErrorBack", 5);
+                    /// <summary>
+                    /// Loads and adds all of the components to the instantiated object so that you can scale it, rotate it and change its animations.
+                    /// </summary>
+                    #region Controls
+
+                    selectedObject.AddComponent<Lean.Touch.LeanRotate>();
+                    selectedObject.AddComponent<Lean.Touch.LeanScale>();
+
+                    if (selectedObject.GetComponent<AnimatorManager>() == null)
+                    {
+                        animatorManager = selectedObject.AddComponent<AnimatorManager>();
+                    }
+
+                    else
+                    {
+                        animatorManager = selectedObject.GetComponent<AnimatorManager>();
+                    }
+
+                    if (selectedObject.GetComponent<SwipeControls>() == null)
+                    {
+                        swipeControls = selectedObject.AddComponent<SwipeControls>();
+                    }
+
+                    else
+                    {
+                        swipeControls = selectedObject.GetComponent<SwipeControls>();
+                    }
+                    #endregion
+
+                    if (augmentation != null)
+                    {
+                        augmentation.transform.SetParent(newImageTarget.transform);
+                    }
+                    if (imageTargetTemplate)
+                    {
+                        ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+                        ImageTargetBehaviour imageTargetBehaviour = (ImageTargetBehaviour)tracker.TargetFinder.EnableTracking(targetSearchResult, newImageTarget);
+                    }
+                    else if (errorShown == false)
+                    {
+                        errorShown = true;
+                        errorUI.SetActive(true);
+                        Invoke("ErrorBack", 5);
+                    }
+
+                    instantiated = true;
+                    detected = true;
                 }
-                instantiated = true;
-                detected = true;
             }
         }
-    }
-
-    float componentMax(Vector3 a)
-    {
-        return Mathf.Max(Mathf.Max(a.x, a.y), a.z);
-    }
-
-    Vector3 div(Vector3 a, Vector3 b)
-    {
-        return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
     }
 
     /// <summary>

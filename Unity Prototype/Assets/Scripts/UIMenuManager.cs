@@ -35,7 +35,7 @@ public class UIMenuManager : MonoBehaviour
 
     void Remove()
     {
-        main[3].GetComponent<RectTransform>().DOAnchorPos(new Vector3(0, 1500, 0), 1);
+        main[3].GetComponent<RectTransform>().DOAnchorPos(new Vector3(0, 1800, 0), 1);
         scanButton.GetComponent<Animator>().enabled = true;
         scanButton.GetComponent<Image>().color = new Color(0, 0, 0, 255);
     }

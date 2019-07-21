@@ -26,7 +26,7 @@ public class CheckNetwork : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork && changedWiFi == false)
+        if (Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork && changedWiFi == false || Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork && changedWiFi == false)
         {
             changedOffline = false;
             changedWiFi = true;
@@ -35,24 +35,27 @@ public class CheckNetwork : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        else if (Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork && changedData == false)
-        {
-            mobileDataUI.SetActive(true);
+        #region TemporaryFix
+        //else if (Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork && changedData == false)
+        //{
+        //    mobileDataUI.SetActive(true);
 
-            changedOffline = false;
-            changedWiFi = false;
-            changedData = true;
+        //    changedOffline = false;
+        //    changedWiFi = false;
+        //    changedData = true;
 
-            if (scanButton.activeSelf == true)
-            {
-                scanButton.SetActive(false);
-            }
+        //    if (scanButton.activeSelf == true)
+        //    {
+        //        scanButton.SetActive(false);
+        //    }
 
-            if (exitButton.activeSelf == true)
-            {
-                exitButton.SetActive(false);
-            }
-        }
+        //    if (exitButton.activeSelf == true)
+        //    {
+        //        exitButton.SetActive(false);
+        //    }
+        //}
+        #endregion
+
         else if (Application.internetReachability == NetworkReachability.NotReachable && changedOffline == false)
         {
             changedOffline = true;
